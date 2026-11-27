@@ -20,7 +20,6 @@ function renderHeader(depth, activeNav) {
         <span class="badge-logo">VPN TOP</span>
         <span>机场评测网</span>
       </a>
-      <button class="nav-toggle-btn" aria-label="切换导航菜单" aria-expanded="false">&#9776;</button>
       <nav class="main-nav" aria-label="全站导航">
         <a href="${rel}index.html" class="${activeNav === 'home' ? 'active' : ''}">首页</a>
         <a href="${rel}recommend/stable/index.html" class="${activeNav === 'recommend' ? 'active' : ''}">机场推荐</a>
@@ -29,6 +28,10 @@ function renderHeader(depth, activeNav) {
         <a href="${rel}guides/windows/index.html" class="${activeNav === 'guides' ? 'active' : ''}">使用教程</a>
         <a href="${rel}blog/how-to-choose-airport/index.html" class="${activeNav === 'blog' ? 'active' : ''}">博客文章</a>
       </nav>
+      <div class="header-actions">
+        <a href="${rel}compare/index.html" class="btn btn-outline btn-sm">横向对比</a>
+      </div>
+      <button class="nav-toggle-btn" aria-label="切换导航菜单" aria-expanded="false">&#9776;</button>
     </div>
   </header>`;
 }
