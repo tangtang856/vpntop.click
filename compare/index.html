@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>机场横向对比工具 - 实时对比价格/流量/专线/解锁能力 | VPN Top</title>
+  <meta name="description" content="专业机场横向对比工具。支持2-4家机场并排参数对齐，实时比较月费门槛、实际每GB单价、骨干专线资质、ChatGPT与4K流媒体原生解锁能力，帮您快速做出明智选择。">
+  <link rel="canonical" href="https://vpntop.click/compare/">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:title" content="机场横向对比工具 - 实时对比价格/流量/专线/解锁能力 | VPN Top">
+  <meta property="og:description" content="专业机场横向对比工具。支持2-4家机场并排参数对齐，实时比较月费门槛、实际每GB单价、骨干专线资质、ChatGPT与4K流媒体原生解锁能力，帮您快速做出明智选择。">
+  <meta property="og:url" content="https://vpntop.click/compare/">
+  <meta property="og:site_name" content="VPN Top">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="机场横向对比工具 - 实时对比价格/流量/专线/解锁能力 | VPN Top">
+  <meta name="twitter:description" content="专业机场横向对比工具。支持2-4家机场并排参数对齐，实时比较月费门槛、实际每GB单价、骨干专线资质、ChatGPT与4K流媒体原生解锁能力，帮您快速做出明智选择。">
+  <!-- Native Clean CSS (Strictly Relative Path) -->
+  <link rel="stylesheet" href="../css/style.css">
+  
+</head>
+<body>
+  
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="site-logo">
+        <span class="badge-logo">VPN TOP</span>
+        <span>机场评测网</span>
+      </a>
+      <button class="nav-toggle-btn" aria-label="切换导航菜单" aria-expanded="false">&#9776;</button>
+      <nav class="main-nav" aria-label="全站导航">
+        <a href="../index.html" class="">首页</a>
+        <a href="../recommend/stable/index.html" class="">机场推荐</a>
+        <a href="../ranking/overall/index.html" class="">机场排行</a>
+        <a href="../compare/index.html" class="active">机场对比</a>
+        <a href="../guides/windows/index.html" class="">使用教程</a>
+        <a href="../blog/how-to-choose-airport/index.html" class="">博客文章</a>
+      </nav>
+    </div>
+  </header>
+  
+  <nav class="breadcrumb-bar" aria-label="面包屑导航">
+    <div class="container">
+      <ul class="breadcrumb-list">
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../compare/index.html">机场工具</a></li><li aria-current="page">横向对比工具</li>
+      </ul>
+    </div>
+  </nav>
+  <main>
+    
+  <div class="container" style="padding-top:40px; padding-bottom:60px;">
+    <div class="article-header">
+      <h1 class="article-title">机场横向对比工具：多维度参数对齐选购</h1>
+      <div class="article-meta">
+        <span>🔄 交互特性：支持选择 2-4 家主流品牌并排对比</span>
+        <span>📊 数据依据：统一数据源，严格核查</span>
+        <span>⚡ 模式：纯原生 JS 运行，支持横向拖拽与差异高亮</span>
+      </div>
+    </div>
+
+    <div class="quick-answer-card">
+      <div class="quick-answer-header">
+        <span>🎯 如何使用本对比工具？</span>
+      </div>
+      <p style="color:var(--text-muted); font-size:0.95rem;">
+        在下方选择框中挑选您正在纠结的机场品牌，系统将自动对比<strong>起始门槛、测算每GB单价、专线骨干类型、支持协议、AI/4K流媒体解锁能力及缺点短板</strong>。即使在无 JavaScript 环境下，下方也已预渲染主流对比矩阵。
+      </p>
+    </div>
+
+    <!-- Dynamic Selector Toolbar -->
+    <div style="background-color:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:20px; margin:24px 0;">
+      <h3 style="font-size:1.1rem; margin-bottom:12px; color:var(--secondary);">配置对比席位</h3>
+      <div id="compare-selectors" class="compare-select-row">
+        <!-- Injected via compare.js -->
+        <noscript>
+          <div class="notice-box">JavaScript 已被禁用，下方已为您直接呈现全量机场对比矩阵。</div>
+        </noscript>
+      </div>
+    </div>
+
+    <!-- Target Comparison Matrix (Pre-rendered for SEO & dynamic update) -->
+    <div id="compare-table-target">
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th style="width:160px;">对比维度</th>
+              <th style="text-align:center;"><div style="font-size:1.05rem; font-weight:700;">WgetCloud (恶魔之眼)</div></th><th style="text-align:center;"><div style="font-size:1.05rem; font-weight:700;">Kuromi Network (黑猫机场)</div></th><th style="text-align:center;"><div style="font-size:1.05rem; font-weight:700;">TAG VPN</div></th><th style="text-align:center;"><div style="font-size:1.05rem; font-weight:700;">FlyingBird (飞鸟机场)</div></th><th style="text-align:center;"><div style="font-size:1.05rem; font-weight:700;">DuangCloud</div></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="font-weight:600; background-color:var(--bg-alt);">起步月费门槛</td>
+              <td style="text-align:center;"><strong>¥49</strong> /月起</td><td style="text-align:center;"><strong>¥20</strong> /月起</td><td style="text-align:center;"><strong>¥33</strong> /月起</td><td style="text-align:center;"><strong>¥15</strong> /月起</td><td style="text-align:center;"><strong>¥40</strong> /月起</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600; background-color:var(--bg-alt);">起始套餐流量</td>
+              <td style="text-align:center;">120 GB</td><td style="text-align:center;">100 GB</td><td style="text-align:center;">250 GB</td><td style="text-align:center;">100 GB</td><td style="text-align:center;">150 GB</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600; background-color:var(--bg-alt);">每GB单价预估</td>
+              <td style="text-align:center; color:var(--primary); font-weight:700;">0.408 元/GB</td><td style="text-align:center; color:var(--primary); font-weight:700;">0.200 元/GB</td><td style="text-align:center; color:var(--primary); font-weight:700;">0.396 元/GB</td><td style="text-align:center; color:var(--primary); font-weight:700;">0.150 元/GB</td><td style="text-align:center; color:var(--primary); font-weight:700;">0.267 元/GB</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600; background-color:var(--bg-alt);">骨干线路类型</td>
+              <td style="text-align:center;">BGP Bidir专线</td><td style="text-align:center;">IEPL内网专线</td><td style="text-align:center;">IPLC物理专线</td><td style="text-align:center;">IEPL内网专线</td><td style="text-align:center;">IEPL内网专线</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600; background-color:var(--bg-alt);">支持协议</td>
+              <td style="text-align:center;">Shadowsocks, Trojan, V2Ray</td><td style="text-align:center;">Shadowsocks, V2Ray</td><td style="text-align:center;">Shadowsocks</td><td style="text-align:center;">Shadowsocks</td><td style="text-align:center;">Shadowsocks, Vless</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600; background-color:var(--bg-alt);">地区覆盖</td>
+              <td style="text-align:center;">香港/台湾/日本/新加坡</td><td style="text-align:center;">香港/台湾/日本/新加坡</td><td style="text-align:center;">全球90+国家/香港/日本/新加坡</td><td style="text-align:center;">香港/台湾/日本/新加坡</td><td style="text-align:center;">香港/台湾/日本/新加坡</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600; background-color:var(--bg-alt);">同时在线设备</td>
+              <td style="text-align:center;">3 - 8 台</td><td style="text-align:center;">2 - 8 台</td><td style="text-align:center;">5 - 10 台</td><td style="text-align:center;">2 - 5 台</td><td style="text-align:center;">3 - 8 台</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600; background-color:var(--bg-alt);">AI 大模型解锁</td>
+              <td style="text-align:center; color:var(--success); font-weight:600;">ChatGPT/Claude/Gemini</td><td style="text-align:center; color:var(--success); font-weight:600;">ChatGPT/Claude/Gemini</td><td style="text-align:center; color:var(--success); font-weight:600;">ChatGPT/Claude/Perplexity</td><td style="text-align:center; color:var(--success); font-weight:600;">ChatGPT/Claude/Gemini</td><td style="text-align:center; color:var(--success); font-weight:600;">ChatGPT/Claude/Gemini</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600; background-color:var(--bg-alt);">4K 流媒体</td>
+              <td style="text-align:center;">Netflix 4K/Disney+/YouTube Premium</td><td style="text-align:center;">Netflix/Disney+/YouTube</td><td style="text-align:center;">Netflix全球区/Disney+/BBC iPlayer</td><td style="text-align:center;">Netflix/Disney+/YouTube</td><td style="text-align:center;">Netflix/Disney+/YouTube Premium</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600; background-color:var(--bg-alt);">需注意的短板</td>
+              <td style="text-align:center; color:var(--danger); font-size:0.88rem;">起步价格较高 (49元/月起)，不适合超低预算学生群体</td><td style="text-align:center; color:var(--danger); font-size:0.88rem;">轻量版套餐在线设备限制较为严格 (限2台)</td><td style="text-align:center; color:var(--danger); font-size:0.88rem;">月付套餐门槛相对偏高，最低需季付99元或月付45元</td><td style="text-align:center; color:var(--danger); font-size:0.88rem;">尝鲜套餐仅支持2台设备，且高峰期遇到突发波动恢复速度不如旗舰机场</td><td style="text-align:center; color:var(--danger); font-size:0.88rem;">价格整体居中偏高，无极低预算套餐</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600; background-color:var(--bg-alt);">独立评测报告</td>
+              <td style="text-align:center;"><a href="../review/wgetcloud/index.html" class="btn btn-outline btn-sm">查看评测</a></td><td style="text-align:center;"><a href="../review/kuromi/index.html" class="btn btn-outline btn-sm">查看评测</a></td><td style="text-align:center;"><a href="../review/tag/index.html" class="btn btn-outline btn-sm">查看评测</a></td><td style="text-align:center;"><a href="../review/flyingbird/index.html" class="btn btn-outline btn-sm">查看评测</a></td><td style="text-align:center;"><a href="../review/duang/index.html" class="btn btn-outline btn-sm">查看评测</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="article-content" style="margin-top:40px;">
+      <h2>横向比较核心维度说明</h2>
+      <p>
+        <strong>1. 线路架构优劣：</strong>BGP Bidir 多线接入保证三网入口同等低延迟；IPLC 专线物理点对点直连不经过公网；IEPL 专线成本适中且稳定性远超公网直连。
+      </p>
+      <p>
+        <strong>2. 单价陷阱识别：</strong>很多机场故意用 0.1x 倍率节点虚晃一枪，但该节点经常处于断连状态。实际使用中，优质节点的倍率通常为 1.0x。
+      </p>
+    </div>
+  </div>
+  <script src="../data/airports.js"></script>
+  <script src="../js/compare.js"></script>
+  </main>
+  
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h5>关于 VPN Top (vpntop.click)</h5>
+          <p style="margin-bottom:12px; line-height:1.6; color:#94a3b8;">
+            专注真实客观的中文机场推荐、翻墙梯子测评、IPLC/IEPL高速专线节点监测与网络加速科普。杜绝虚假跑分，秉持数据透明与中立原则。
+          </p>
+          <p style="color:#64748b; font-size:0.82rem;">主攻搜索词：机场推荐 · 性价比机场 · 梯子推荐 · 机场节点 · vpn机场推荐</p>
+        </div>
+        <div class="footer-col">
+          <h5>专题推荐</h5>
+          <ul>
+            <li><a href="../recommend/budget/index.html">低预算便宜机场</a></li>
+            <li><a href="../recommend/premium/index.html">高端IPLC专线机场</a></li>
+            <li><a href="../recommend/stable/index.html">稳定晚高峰机场</a></li>
+            <li><a href="../recommend/ai/index.html">AI / ChatGPT 专用节点</a></li>
+            <li><a href="../recommend/streaming/index.html">4K 流媒体解锁机场</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>排行榜与评测</h5>
+          <ul>
+            <li><a href="../ranking/overall/index.html">2026综合实力总榜</a></li>
+            <li><a href="../ranking/value/index.html">高性价比机场排行</a></li>
+            <li><a href="../ranking/budget/index.html">平价低预算排行榜</a></li>
+            <li><a href="../compare/index.html">机场横向对比工具</a></li>
+            <li><a href="../review/wgetcloud/index.html">WgetCloud 深度评测</a></li>
+            <li><a href="../review/kuromi/index.html">Kuromi 深度评测</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>站点政策与服务</h5>
+          <ul>
+            <li><a href="../about/index.html">关于我们</a></li>
+            <li><a href="../contact/index.html">联系编辑部</a></li>
+            <li><a href="../editorial-policy/index.html">客观编辑政策</a></li>
+            <li><a href="../privacy-policy/index.html">隐私政策</a></li>
+            <li><a href="../disclaimer/index.html">合规免责声明</a></li>
+            <li><a href="../sitemap.xml">XML 网站地图</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 VPN Top (vpntop.click) - 保留所有权利。遵循客观独立测评规范。</div>
+        <div>全站纯 HTML 极速架构 | Bing SEO 强化版</div>
+      </div>
+    </div>
+  </footer>
+  <script src="../js/main.js"></script>
+</body>
+</html>

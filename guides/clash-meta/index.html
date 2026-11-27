@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clash Meta (Mihomo) 内核规则分流与高级设置详解 | VPN Top</title>
+  <meta name="description" content="Clash Meta (Mihomo) 进阶教程。深度解析 Rule Provider 分流规则集、DNS 防污染防泄漏设置、Hysteria2与Vless现代协议支持技巧。">
+  <link rel="canonical" href="https://vpntop.click/guides/clash-meta/">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:title" content="Clash Meta (Mihomo) 内核规则分流与高级设置详解 | VPN Top">
+  <meta property="og:description" content="Clash Meta (Mihomo) 进阶教程。深度解析 Rule Provider 分流规则集、DNS 防污染防泄漏设置、Hysteria2与Vless现代协议支持技巧。">
+  <meta property="og:url" content="https://vpntop.click/guides/clash-meta/">
+  <meta property="og:site_name" content="VPN Top">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Clash Meta (Mihomo) 内核规则分流与高级设置详解 | VPN Top">
+  <meta name="twitter:description" content="Clash Meta (Mihomo) 进阶教程。深度解析 Rule Provider 分流规则集、DNS 防污染防泄漏设置、Hysteria2与Vless现代协议支持技巧。">
+  <!-- Native Clean CSS (Strictly Relative Path) -->
+  <link rel="stylesheet" href="../../css/style.css">
+  
+</head>
+<body>
+  
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../../index.html" class="site-logo">
+        <span class="badge-logo">VPN TOP</span>
+        <span>机场评测网</span>
+      </a>
+      <button class="nav-toggle-btn" aria-label="切换导航菜单" aria-expanded="false">&#9776;</button>
+      <nav class="main-nav" aria-label="全站导航">
+        <a href="../../index.html" class="">首页</a>
+        <a href="../../recommend/stable/index.html" class="">机场推荐</a>
+        <a href="../../ranking/overall/index.html" class="">机场排行</a>
+        <a href="../../compare/index.html" class="">机场对比</a>
+        <a href="../../guides/windows/index.html" class="active">使用教程</a>
+        <a href="../../blog/how-to-choose-airport/index.html" class="">博客文章</a>
+      </nav>
+    </div>
+  </header>
+  
+  <nav class="breadcrumb-bar" aria-label="面包屑导航">
+    <div class="container">
+      <ul class="breadcrumb-list">
+        <li><a href="../../index.html">首页</a></li>
+        <li><a href="../../guides/windows/index.html">使用教程</a></li><li aria-current="page">Clash Meta (Mihomo) 内核规则分流与高级设置详解</li>
+      </ul>
+    </div>
+  </nav>
+  <main>
+    
+    <article class="container article-container" style="padding-top:40px; padding-bottom:60px;">
+      <div class="article-header">
+        <h1 class="article-title">Clash Meta (Mihomo) 内核规则分流与高级设置详解</h1>
+        <div class="article-meta">
+          <span>📅 更新时间：2026年11月</span>
+          <span>💻 操作系统：CLASH-META</span>
+          <span>⏱️ 阅读时长：约 5 分钟实操</span>
+        </div>
+      </div>
+
+      <div class="quick-answer-card">
+        <div class="quick-answer-header">
+          <span>💡 教程导读</span>
+        </div>
+        <p style="color:var(--text-muted); font-size:1rem; line-height:1.7;">
+          Mihomo（原 Clash.Meta）是目前开源社区最强大、维护最活跃的分流代理内核。掌握其高级配置能彻底杜绝 DNS 泄漏并极致优化访问速度。
+        </p>
+      </div>
+
+      <div class="article-content">
+        <h2>图文实操步骤分解</h2>
+        
+        <div style="background-color:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:20px; margin:20px 0;">
+          <h3 style="margin-top:0; color:var(--secondary); font-size:1.15rem;">第一步：理解 Rule-Providers 动态规则集</h3>
+          <p style="margin-bottom:0; color:var(--text-main); font-size:0.98rem; line-height:1.7;">
+            通过引入外部 YAML 规则文件（如 Loyalsoldier 或 ACL4SSR），可以让国内顶级域名、Steam 游戏加速和 AI 服务走不同的指定策略组。
+          </p>
+        </div>
+        
+        <div style="background-color:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:20px; margin:20px 0;">
+          <h3 style="margin-top:0; color:var(--secondary); font-size:1.15rem;">第二步：配置 fake-ip 与 DNS 防污染</h3>
+          <p style="margin-bottom:0; color:var(--text-main); font-size:0.98rem; line-height:1.7;">
+            将 dns.mode 设置为 fake-ip，并配置境外 DoH（如 Cloudflare 1.1.1.1 或 Google 8.8.8.8），有效规避运营商 DNS 投毒并缩短首包响应时间。
+          </p>
+        </div>
+        
+        <div style="background-color:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:20px; margin:20px 0;">
+          <h3 style="margin-top:0; color:var(--secondary); font-size:1.15rem;">第三步：针对 ChatGPT 与 Claude 的专项路由策略</h3>
+          <p style="margin-bottom:0; color:var(--text-main); font-size:0.98rem; line-height:1.7;">
+            为 OpenAI 相关域名单独设立策略组，强制指定具有原生住宅 IP 的美国或新加坡节点，避免随意漂移触发风控。
+          </p>
+        </div>
+        
+
+        <h2>常见报错排查技巧 (Troubleshooting)</h2>
+        <p>
+          <strong>1. 节点全部超时或 Ping 为 Timeout：</strong>
+          首先检查电脑或手机的【系统时间】是否精确对齐网络标准北京时间。时间偏差超过 90 秒会导致 TLS 握手彻底失败。其次检查订阅链接是否已过期或流量耗尽。
+        </p>
+        <p>
+          <strong>2. 能打开 Google 但微信图片加载不出来：</strong>
+          说明误开启了【全局代理 (Global)】模式。请在代理设置中切换回【规则 (Rule)】模式，让国内流量自动绕过代理走本地直连。
+        </p>
+
+        <div class="notice-box">
+          <strong>还没有好用的机场节点？</strong>
+          客户端只是工具外壳，网络速度的核心取决于机场节点的质量。推荐查看我们的 <a href="../../ranking/overall/index.html">2026 优质VPN机场综合实力排行榜</a> 或 <a href="../../ranking/value/index.html">高性价比专线梯子推荐</a>。
+        </div>
+
+        <div class="related-posts">
+          <h3>相关平台与进阶教程推荐</h3>
+          <div class="related-grid">
+            <a href="../../guides/windows/index.html" class="related-card">
+              <h4>🖥️ Windows 客户端实操指南</h4>
+              <span>Clash Verge 配置图解</span>
+            </a>
+            <a href="../../guides/android/index.html" class="related-card">
+              <h4>📱 Android 客户端保姆级教程</h4>
+              <span>Clash Meta / v2rayNG</span>
+            </a>
+            <a href="../../guides/ios/index.html" class="related-card">
+              <h4>🍏 iOS 小火箭配置指南</h4>
+              <span>美区ID与订阅导入</span>
+            </a>
+            <a href="../../guides/clash-meta/index.html" class="related-card">
+              <h4>🛠️ Clash Meta 内核进阶</h4>
+              <span>分流规则与 DNS 优化</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h5>关于 VPN Top (vpntop.click)</h5>
+          <p style="margin-bottom:12px; line-height:1.6; color:#94a3b8;">
+            专注真实客观的中文机场推荐、翻墙梯子测评、IPLC/IEPL高速专线节点监测与网络加速科普。杜绝虚假跑分，秉持数据透明与中立原则。
+          </p>
+          <p style="color:#64748b; font-size:0.82rem;">主攻搜索词：机场推荐 · 性价比机场 · 梯子推荐 · 机场节点 · vpn机场推荐</p>
+        </div>
+        <div class="footer-col">
+          <h5>专题推荐</h5>
+          <ul>
+            <li><a href="../../recommend/budget/index.html">低预算便宜机场</a></li>
+            <li><a href="../../recommend/premium/index.html">高端IPLC专线机场</a></li>
+            <li><a href="../../recommend/stable/index.html">稳定晚高峰机场</a></li>
+            <li><a href="../../recommend/ai/index.html">AI / ChatGPT 专用节点</a></li>
+            <li><a href="../../recommend/streaming/index.html">4K 流媒体解锁机场</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>排行榜与评测</h5>
+          <ul>
+            <li><a href="../../ranking/overall/index.html">2026综合实力总榜</a></li>
+            <li><a href="../../ranking/value/index.html">高性价比机场排行</a></li>
+            <li><a href="../../ranking/budget/index.html">平价低预算排行榜</a></li>
+            <li><a href="../../compare/index.html">机场横向对比工具</a></li>
+            <li><a href="../../review/wgetcloud/index.html">WgetCloud 深度评测</a></li>
+            <li><a href="../../review/kuromi/index.html">Kuromi 深度评测</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>站点政策与服务</h5>
+          <ul>
+            <li><a href="../../about/index.html">关于我们</a></li>
+            <li><a href="../../contact/index.html">联系编辑部</a></li>
+            <li><a href="../../editorial-policy/index.html">客观编辑政策</a></li>
+            <li><a href="../../privacy-policy/index.html">隐私政策</a></li>
+            <li><a href="../../disclaimer/index.html">合规免责声明</a></li>
+            <li><a href="../../sitemap.xml">XML 网站地图</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 VPN Top (vpntop.click) - 保留所有权利。遵循客观独立测评规范。</div>
+        <div>全站纯 HTML 极速架构 | Bing SEO 强化版</div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../js/main.js"></script>
+</body>
+</html>
