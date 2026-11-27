@@ -81,7 +81,9 @@
       "微风网络后台控制台公示"
     ],
     "lastVerified": "2026-11-25",
-    "testStatus": "tested"
+    "testStatus": "tested",
+    "lineType": "IEPL/IPLC高速专线",
+    "suitableSummary": "学生党、大流量视频追剧、高性价比主力"
   },
   {
     "id": "muguang",
@@ -162,7 +164,9 @@
       "暮光网络官方服务文档"
     ],
     "lastVerified": "2026-11-24",
-    "testStatus": "tested"
+    "testStatus": "tested",
+    "lineType": "专线节点网络架构",
+    "suitableSummary": "需要稳定专线梯子日常办公与查资料的用户"
   },
   {
     "id": "feimaoyun",
@@ -242,7 +246,9 @@
       "飞猫云官方控制台公告"
     ],
     "lastVerified": "2026-11-25",
-    "testStatus": "tested"
+    "testStatus": "tested",
+    "lineType": "IEPL/IPLC中转双冗余",
+    "suitableSummary": "预算有限且追求大流量看视频的年轻群体"
   },
   {
     "id": "wuyou",
@@ -324,7 +330,9 @@
       "无忧链接官方网络监控"
     ],
     "lastVerified": "2026-11-23",
-    "testStatus": "tested"
+    "testStatus": "tested",
+    "lineType": "真实IPLC物理专线",
+    "suitableSummary": "对抗封锁稳定性有硬性要求的跨国办公人员"
   },
   {
     "id": "lingmao",
@@ -407,7 +415,9 @@
       "灵猫后台官方定价表"
     ],
     "lastVerified": "2026-11-22",
-    "testStatus": "tested"
+    "testStatus": "tested",
+    "lineType": "真实IPLC纯专线",
+    "suitableSummary": "重度依赖 ChatGPT/Claude 原生住宅IP解锁"
   },
   {
     "id": "flashleap",
@@ -488,7 +498,9 @@
       "闪跃官方状态监控"
     ],
     "lastVerified": "2026-11-24",
-    "testStatus": "tested"
+    "testStatus": "tested",
+    "lineType": "IPLC纯专线骨干",
+    "suitableSummary": "电竞级低延迟联机、4K流媒体极致体验"
   },
   {
     "id": "firefly",
@@ -567,7 +579,9 @@
       "Firefly机场公开资费"
     ],
     "lastVerified": "2026-11-21",
-    "testStatus": "tested"
+    "testStatus": "tested",
+    "lineType": "优质优化线路",
+    "suitableSummary": "轻度网页查资料、Google 学术搜索与邮件收发用户"
   },
   {
     "id": "kuajiecloud",
@@ -646,7 +660,9 @@
       "跨界云后台服务协议"
     ],
     "lastVerified": "2026-11-23",
-    "testStatus": "tested"
+    "testStatus": "tested",
+    "lineType": "全专线网络架构",
+    "suitableSummary": "喜欢 Shadowsocks 简洁协议的高效办公族"
   },
   {
     "id": "yinxingren",
@@ -728,7 +744,9 @@
       "隐形人官方网络监控看板"
     ],
     "lastVerified": "2026-11-25",
-    "testStatus": "tested"
+    "testStatus": "tested",
+    "lineType": "IEPL纯专线架构",
+    "suitableSummary": "多设备并发、晚高峰对卡顿零容忍的用户"
   },
   {
     "id": "feiv",
@@ -808,7 +826,9 @@
       "飞V服务后台计费说明"
     ],
     "lastVerified": "2026-11-24",
-    "testStatus": "tested"
+    "testStatus": "tested",
+    "lineType": "优化线路（含不限时包）",
+    "suitableSummary": "极低预算尝鲜、29元不限时应急备用"
   },
   {
     "id": "laddercloud",
@@ -888,7 +908,9 @@
       "梯子云控制台"
     ],
     "lastVerified": "2026-11-23",
-    "testStatus": "tested"
+    "testStatus": "tested",
+    "lineType": "优化中转与专线结合",
+    "suitableSummary": "需要稳定中转与大带宽下载的综合日常用户"
   },
   {
     "id": "wavenet",
@@ -971,7 +993,9 @@
       "浪网官方服务协议"
     ],
     "lastVerified": "2026-11-24",
-    "testStatus": "tested"
+    "testStatus": "tested",
+    "lineType": "自研客户端优化专线",
+    "suitableSummary": "追求开箱即用、不想折腾繁琐配置文件的多设备用户"
   },
   {
     "id": "lingdongcloud",
@@ -1050,7 +1074,9 @@
       "灵动云官方状态页"
     ],
     "lastVerified": "2026-11-23",
-    "testStatus": "tested"
+    "testStatus": "tested",
+    "lineType": "优化节点加速",
+    "suitableSummary": "日常 Google 查资料、写论文和轻度浏览"
   },
   {
     "id": "quanqiuyun",
@@ -1130,6 +1156,8 @@
       "全球云后台资费表"
     ],
     "lastVerified": "2026-11-25",
-    "testStatus": "tested"
+    "testStatus": "tested",
+    "lineType": "全球加速专线中继",
+    "suitableSummary": "跨境商务、外贸SOHO与多国流媒体解析"
   }
 ]

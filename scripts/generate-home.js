@@ -128,17 +128,16 @@ function generateHomepage() {
       </div>
 
       <div class="table-container">
-        <table class="table" id="airports-ranking-table">
+        <table class="data-table" id="airports-ranking-table">
           <thead>
             <tr>
               <th style="width:65px; text-align:center;">排名</th>
-              <th>品牌名称</th>
-              <th>起步价格</th>
-              <th>入门流量</th>
-              <th>骨干传输线路</th>
-              <th>适合人群</th>
-              <th>专属优惠</th>
-              <th style="text-align:center; width:170px;">操作</th>
+              <th style="width:200px;">品牌名称</th>
+              <th style="width:110px; white-space:nowrap;">起步价格</th>
+              <th style="width:110px; white-space:nowrap;">入门流量</th>
+              <th style="width:190px; white-space:nowrap;">骨干传输线路</th>
+              <th style="min-width:240px;">适合人群</th>
+              <th style="text-align:center; width:160px;">操作</th>
             </tr>
           </thead>
           <tbody>
@@ -146,7 +145,7 @@ function generateHomepage() {
               // tags for dynamic filtering
               let filterTags = ['all'];
               if (a.startingPrice <= 10) filterTags.push('budget');
-              if (a.plans[0]?.features[3]?.includes('专线') || a.advantages.some(v => v.includes('专线'))) filterTags.push('premium');
+              if (a.lineType?.includes('专线') || a.advantages.some(v => v.includes('专线'))) filterTags.push('premium');
               if (a.aiSupport && a.aiSupport.length > 0) filterTags.push('ai');
               if (a.streamingSupport && a.streamingSupport.length > 0) filterTags.push('streaming');
 
@@ -156,34 +155,28 @@ function generateHomepage() {
                 <span class="rank-badge rank-${idx + 1}">${idx + 1}</span>
               </td>
               <td>
-                <div style="font-weight:700; font-size:1.02rem; color:var(--secondary);">${a.name}</div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:4px;">
-                  ${a.protocols.map(p => `<span class="badge" style="font-size:0.75rem; padding:2px 6px;">${p}</span>`).join('')}
-                </div>
+                <div class="airport-brand-title">${a.name}</div>
+                ${a.coupon ? `
+                <div class="brand-coupon-pill" onclick="copyCouponText('${a.coupon}')" title="点击复制优惠码">
+                  券码: <code>${a.coupon}</code> <span class="copy-hint">复制</span>
+                </div>` : ''}
               </td>
-              <td>
+              <td style="white-space:nowrap;">
                 <strong style="color:var(--danger); font-size:1.15rem;">¥${a.startingPrice}</strong>
                 <span style="font-size:0.8rem; color:var(--text-muted);">/月</span>
               </td>
-              <td>
+              <td style="white-space:nowrap;">
                 <strong style="color:var(--text-main); font-size:1.05rem;">${a.plans[0]?.traffic || '100'}GB</strong>
               </td>
               <td>
-                <span class="badge badge-verified" style="font-size:0.85rem;">${a.plans[0]?.features[3] || '高速线路'}</span>
-              </td>
-              <td style="font-size:0.88rem; color:var(--text-muted); max-width:240px;">
-                ${a.suitableFor[0]}
+                <span class="line-badge">${a.lineType}</span>
               </td>
               <td>
-                ${a.coupon ? `
-                <div class="coupon-tag-btn" onclick="copyCouponText('${a.coupon}')" title="点击复制优惠码">
-                  <span class="coupon-text">${a.coupon}</span>
-                  <span class="copy-tip">复制</span>
-                </div>` : `<span style="color:var(--text-light);">-</span>`}
+                <div class="suitable-text">${a.suitableSummary || a.suitableFor[0]}</div>
               </td>
               <td style="text-align:center;">
                 <div style="display:flex; gap:6px; justify-content:center; align-items:center;">
-                  <a href="${rel}review/${a.id}/index.html" class="btn btn-outline btn-sm" style="padding:6px 10px;">评测</a>
+                  <a href="${rel}review/${a.id}/index.html" class="btn btn-outline btn-sm" style="padding:6px 10px;">评测详情</a>
                   <a href="${a.affiliateUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="padding:6px 12px; font-weight:700;">直达官网</a>
                 </div>
               </td>

@@ -256,17 +256,16 @@
       </div>
 
       <div class="table-container">
-        <table class="table" id="airports-ranking-table">
+        <table class="data-table" id="airports-ranking-table">
           <thead>
             <tr>
               <th style="width:65px; text-align:center;">排名</th>
-              <th>品牌名称</th>
-              <th>起步价格</th>
-              <th>入门流量</th>
-              <th>骨干传输线路</th>
-              <th>适合人群</th>
-              <th>专属优惠</th>
-              <th style="text-align:center; width:170px;">操作</th>
+              <th style="width:200px;">品牌名称</th>
+              <th style="width:110px; white-space:nowrap;">起步价格</th>
+              <th style="width:110px; white-space:nowrap;">入门流量</th>
+              <th style="width:190px; white-space:nowrap;">骨干传输线路</th>
+              <th style="min-width:240px;">适合人群</th>
+              <th style="text-align:center; width:160px;">操作</th>
             </tr>
           </thead>
           <tbody>
@@ -276,34 +275,28 @@
                 <span class="rank-badge rank-1">1</span>
               </td>
               <td>
-                <div style="font-weight:700; font-size:1.02rem; color:var(--secondary);">微风网络 Breezenet</div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:4px;">
-                  <span class="badge" style="font-size:0.75rem; padding:2px 6px;">VLESS</span><span class="badge" style="font-size:0.75rem; padding:2px 6px;">Shadowsocks</span>
+                <div class="airport-brand-title">微风网络 Breezenet</div>
+                
+                <div class="brand-coupon-pill" onclick="copyCouponText('weifeng90')" title="点击复制优惠码">
+                  券码: <code>weifeng90</code> <span class="copy-hint">复制</span>
                 </div>
               </td>
-              <td>
+              <td style="white-space:nowrap;">
                 <strong style="color:var(--danger); font-size:1.15rem;">¥8</strong>
                 <span style="font-size:0.8rem; color:var(--text-muted);">/月</span>
               </td>
-              <td>
+              <td style="white-space:nowrap;">
                 <strong style="color:var(--text-main); font-size:1.05rem;">200GB</strong>
               </td>
               <td>
-                <span class="badge badge-verified" style="font-size:0.85rem;">专属优惠码 weifeng90</span>
-              </td>
-              <td style="font-size:0.88rem; color:var(--text-muted); max-width:240px;">
-                对价格极度敏感但需要大流量追剧与刷推特的学生党
+                <span class="line-badge">IEPL/IPLC高速专线</span>
               </td>
               <td>
-                
-                <div class="coupon-tag-btn" onclick="copyCouponText('weifeng90')" title="点击复制优惠码">
-                  <span class="coupon-text">weifeng90</span>
-                  <span class="copy-tip">复制</span>
-                </div>
+                <div class="suitable-text">学生党、大流量视频追剧、高性价比主力</div>
               </td>
               <td style="text-align:center;">
                 <div style="display:flex; gap:6px; justify-content:center; align-items:center;">
-                  <a href="./review/breezenet/index.html" class="btn btn-outline btn-sm" style="padding:6px 10px;">评测</a>
+                  <a href="./review/breezenet/index.html" class="btn btn-outline btn-sm" style="padding:6px 10px;">评测详情</a>
                   <a href="https://edp01.breezenetaff.com/#/?code=h4GlIXwC" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="padding:6px 12px; font-weight:700;">直达官网</a>
                 </div>
               </td>
@@ -314,30 +307,25 @@
                 <span class="rank-badge rank-2">2</span>
               </td>
               <td>
-                <div style="font-weight:700; font-size:1.02rem; color:var(--secondary);">暮光网络</div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:4px;">
-                  <span class="badge" style="font-size:0.75rem; padding:2px 6px;">VLESS</span><span class="badge" style="font-size:0.75rem; padding:2px 6px;">Trojan</span>
-                </div>
+                <div class="airport-brand-title">暮光网络</div>
+                
               </td>
-              <td>
+              <td style="white-space:nowrap;">
                 <strong style="color:var(--danger); font-size:1.15rem;">¥20</strong>
                 <span style="font-size:0.8rem; color:var(--text-muted);">/月</span>
               </td>
-              <td>
+              <td style="white-space:nowrap;">
                 <strong style="color:var(--text-main); font-size:1.05rem;">120GB</strong>
               </td>
               <td>
-                <span class="badge badge-verified" style="font-size:0.85rem;">三网优化入口</span>
-              </td>
-              <td style="font-size:0.88rem; color:var(--text-muted); max-width:240px;">
-                需要稳定专线梯子日常办公与查资料的用户
+                <span class="line-badge">专线节点网络架构</span>
               </td>
               <td>
-                <span style="color:var(--text-light);">-</span>
+                <div class="suitable-text">需要稳定专线梯子日常办公与查资料的用户</div>
               </td>
               <td style="text-align:center;">
                 <div style="display:flex; gap:6px; justify-content:center; align-items:center;">
-                  <a href="./review/muguang/index.html" class="btn btn-outline btn-sm" style="padding:6px 10px;">评测</a>
+                  <a href="./review/muguang/index.html" class="btn btn-outline btn-sm" style="padding:6px 10px;">评测详情</a>
                   <a href="https://varnexa.twilightaff.com/#/?code=8EtJCnBT" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="padding:6px 12px; font-weight:700;">直达官网</a>
                 </div>
               </td>
@@ -348,34 +336,28 @@
                 <span class="rank-badge rank-3">3</span>
               </td>
               <td>
-                <div style="font-weight:700; font-size:1.02rem; color:var(--secondary);">飞猫云</div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:4px;">
-                  <span class="badge" style="font-size:0.75rem; padding:2px 6px;">Shadowsocks</span><span class="badge" style="font-size:0.75rem; padding:2px 6px;">V2Ray</span>
+                <div class="airport-brand-title">飞猫云</div>
+                
+                <div class="brand-coupon-pill" onclick="copyCouponText('flycat888')" title="点击复制优惠码">
+                  券码: <code>flycat888</code> <span class="copy-hint">复制</span>
                 </div>
               </td>
-              <td>
+              <td style="white-space:nowrap;">
                 <strong style="color:var(--danger); font-size:1.15rem;">¥7</strong>
                 <span style="font-size:0.8rem; color:var(--text-muted);">/月</span>
               </td>
-              <td>
+              <td style="white-space:nowrap;">
                 <strong style="color:var(--text-main); font-size:1.05rem;">150GB</strong>
               </td>
               <td>
-                <span class="badge badge-verified" style="font-size:0.85rem;">专属优惠码 flycat888</span>
-              </td>
-              <td style="font-size:0.88rem; color:var(--text-muted); max-width:240px;">
-                预算有限且追求大流量看视频的年轻群体
+                <span class="line-badge">IEPL/IPLC中转双冗余</span>
               </td>
               <td>
-                
-                <div class="coupon-tag-btn" onclick="copyCouponText('flycat888')" title="点击复制优惠码">
-                  <span class="coupon-text">flycat888</span>
-                  <span class="copy-tip">复制</span>
-                </div>
+                <div class="suitable-text">预算有限且追求大流量看视频的年轻群体</div>
               </td>
               <td style="text-align:center;">
                 <div style="display:flex; gap:6px; justify-content:center; align-items:center;">
-                  <a href="./review/feimaoyun/index.html" class="btn btn-outline btn-sm" style="padding:6px 10px;">评测</a>
+                  <a href="./review/feimaoyun/index.html" class="btn btn-outline btn-sm" style="padding:6px 10px;">评测详情</a>
                   <a href="https://flycat1.flycatvipaff.cc/#/?code=MlwqPqcx" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="padding:6px 12px; font-weight:700;">直达官网</a>
                 </div>
               </td>
@@ -386,34 +368,28 @@
                 <span class="rank-badge rank-4">4</span>
               </td>
               <td>
-                <div style="font-weight:700; font-size:1.02rem; color:var(--secondary);">无忧 (无忧链接)</div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:4px;">
-                  <span class="badge" style="font-size:0.75rem; padding:2px 6px;">Shadowsocks</span><span class="badge" style="font-size:0.75rem; padding:2px 6px;">V2Ray</span>
+                <div class="airport-brand-title">无忧 (无忧链接)</div>
+                
+                <div class="brand-coupon-pill" onclick="copyCouponText('wuyou666')" title="点击复制优惠码">
+                  券码: <code>wuyou666</code> <span class="copy-hint">复制</span>
                 </div>
               </td>
-              <td>
+              <td style="white-space:nowrap;">
                 <strong style="color:var(--danger); font-size:1.15rem;">¥19</strong>
                 <span style="font-size:0.8rem; color:var(--text-muted);">/月</span>
               </td>
-              <td>
+              <td style="white-space:nowrap;">
                 <strong style="color:var(--text-main); font-size:1.05rem;">100GB</strong>
               </td>
               <td>
-                <span class="badge badge-verified" style="font-size:0.85rem;">优惠码 wuyou666</span>
-              </td>
-              <td style="font-size:0.88rem; color:var(--text-muted); max-width:240px;">
-                对抗封锁稳定性有硬性要求的跨国办公人员
+                <span class="line-badge">真实IPLC物理专线</span>
               </td>
               <td>
-                
-                <div class="coupon-tag-btn" onclick="copyCouponText('wuyou666')" title="点击复制优惠码">
-                  <span class="coupon-text">wuyou666</span>
-                  <span class="copy-tip">复制</span>
-                </div>
+                <div class="suitable-text">对抗封锁稳定性有硬性要求的跨国办公人员</div>
               </td>
               <td style="text-align:center;">
                 <div style="display:flex; gap:6px; justify-content:center; align-items:center;">
-                  <a href="./review/wuyou/index.html" class="btn btn-outline btn-sm" style="padding:6px 10px;">评测</a>
+                  <a href="./review/wuyou/index.html" class="btn btn-outline btn-sm" style="padding:6px 10px;">评测详情</a>
                   <a href="https://wep01.worryfreeaff.com/#/?code=oGi9FQ0J" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="padding:6px 12px; font-weight:700;">直达官网</a>
                 </div>
               </td>
@@ -424,30 +400,25 @@
                 <span class="rank-badge rank-5">5</span>
               </td>
               <td>
-                <div style="font-weight:700; font-size:1.02rem; color:var(--secondary);">灵猫</div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:4px;">
-                  <span class="badge" style="font-size:0.75rem; padding:2px 6px;">Shadowsocks</span><span class="badge" style="font-size:0.75rem; padding:2px 6px;">Trojan</span>
-                </div>
+                <div class="airport-brand-title">灵猫</div>
+                
               </td>
-              <td>
+              <td style="white-space:nowrap;">
                 <strong style="color:var(--danger); font-size:1.15rem;">¥25</strong>
                 <span style="font-size:0.8rem; color:var(--text-muted);">/月</span>
               </td>
-              <td>
+              <td style="white-space:nowrap;">
                 <strong style="color:var(--text-main); font-size:1.05rem;">150GB</strong>
               </td>
               <td>
-                <span class="badge badge-verified" style="font-size:0.85rem;">原生IP解锁</span>
-              </td>
-              <td style="font-size:0.88rem; color:var(--text-muted); max-width:240px;">
-                重度依赖 ChatGPT/Claude 的 AI 研发人员与跨境商贸团队
+                <span class="line-badge">真实IPLC纯专线</span>
               </td>
               <td>
-                <span style="color:var(--text-light);">-</span>
+                <div class="suitable-text">重度依赖 ChatGPT/Claude 原生住宅IP解锁</div>
               </td>
               <td style="text-align:center;">
                 <div style="display:flex; gap:6px; justify-content:center; align-items:center;">
-                  <a href="./review/lingmao/index.html" class="btn btn-outline btn-sm" style="padding:6px 10px;">评测</a>
+                  <a href="./review/lingmao/index.html" class="btn btn-outline btn-sm" style="padding:6px 10px;">评测详情</a>
                   <a href="https://vip02.civetaff.com/#/?code=SXY8qyrG" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="padding:6px 12px; font-weight:700;">直达官网</a>
                 </div>
               </td>
@@ -458,34 +429,28 @@
                 <span class="rank-badge rank-6">6</span>
               </td>
               <td>
-                <div style="font-weight:700; font-size:1.02rem; color:var(--secondary);">闪跃 FlashLeap</div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:4px;">
-                  <span class="badge" style="font-size:0.75rem; padding:2px 6px;">Shadowsocks</span><span class="badge" style="font-size:0.75rem; padding:2px 6px;">VLESS</span>
+                <div class="airport-brand-title">闪跃 FlashLeap</div>
+                
+                <div class="brand-coupon-pill" onclick="copyCouponText('shanyue')" title="点击复制优惠码">
+                  券码: <code>shanyue</code> <span class="copy-hint">复制</span>
                 </div>
               </td>
-              <td>
+              <td style="white-space:nowrap;">
                 <strong style="color:var(--danger); font-size:1.15rem;">¥24</strong>
                 <span style="font-size:0.8rem; color:var(--text-muted);">/月</span>
               </td>
-              <td>
+              <td style="white-space:nowrap;">
                 <strong style="color:var(--text-main); font-size:1.05rem;">150GB</strong>
               </td>
               <td>
-                <span class="badge badge-verified" style="font-size:0.85rem;">专属优惠码 shanyue</span>
-              </td>
-              <td style="font-size:0.88rem; color:var(--text-muted); max-width:240px;">
-                跨服联机游戏玩家与语音开黑爱好者
+                <span class="line-badge">IPLC纯专线骨干</span>
               </td>
               <td>
-                
-                <div class="coupon-tag-btn" onclick="copyCouponText('shanyue')" title="点击复制优惠码">
-                  <span class="coupon-text">shanyue</span>
-                  <span class="copy-tip">复制</span>
-                </div>
+                <div class="suitable-text">电竞级低延迟联机、4K流媒体极致体验</div>
               </td>
               <td style="text-align:center;">
                 <div style="display:flex; gap:6px; justify-content:center; align-items:center;">
-                  <a href="./review/flashleap/index.html" class="btn btn-outline btn-sm" style="padding:6px 10px;">评测</a>
+                  <a href="./review/flashleap/index.html" class="btn btn-outline btn-sm" style="padding:6px 10px;">评测详情</a>
                   <a href="https://vip02.flashleapaff.com/#/?code=8ZIV6HQ3" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="padding:6px 12px; font-weight:700;">直达官网</a>
                 </div>
               </td>
@@ -496,34 +461,28 @@
                 <span class="rank-badge rank-7">7</span>
               </td>
               <td>
-                <div style="font-weight:700; font-size:1.02rem; color:var(--secondary);">萤火虫（Firefly）</div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:4px;">
-                  <span class="badge" style="font-size:0.75rem; padding:2px 6px;">VLESS</span><span class="badge" style="font-size:0.75rem; padding:2px 6px;">Trojan</span>
+                <div class="airport-brand-title">萤火虫（Firefly）</div>
+                
+                <div class="brand-coupon-pill" onclick="copyCouponText('firefly')" title="点击复制优惠码">
+                  券码: <code>firefly</code> <span class="copy-hint">复制</span>
                 </div>
               </td>
-              <td>
+              <td style="white-space:nowrap;">
                 <strong style="color:var(--danger); font-size:1.15rem;">¥8</strong>
                 <span style="font-size:0.8rem; color:var(--text-muted);">/月</span>
               </td>
-              <td>
+              <td style="white-space:nowrap;">
                 <strong style="color:var(--text-main); font-size:1.05rem;">60GB</strong>
               </td>
               <td>
-                <span class="badge badge-verified" style="font-size:0.85rem;">专属优惠码 firefly</span>
-              </td>
-              <td style="font-size:0.88rem; color:var(--text-muted); max-width:240px;">
-                轻度网页查资料、Google 学术搜索与邮件收发用户
+                <span class="line-badge">优质优化线路</span>
               </td>
               <td>
-                
-                <div class="coupon-tag-btn" onclick="copyCouponText('firefly')" title="点击复制优惠码">
-                  <span class="coupon-text">firefly</span>
-                  <span class="copy-tip">复制</span>
-                </div>
+                <div class="suitable-text">轻度网页查资料、Google 学术搜索与邮件收发用户</div>
               </td>
               <td style="text-align:center;">
                 <div style="display:flex; gap:6px; justify-content:center; align-items:center;">
-                  <a href="./review/firefly/index.html" class="btn btn-outline btn-sm" style="padding:6px 10px;">评测</a>
+                  <a href="./review/firefly/index.html" class="btn btn-outline btn-sm" style="padding:6px 10px;">评测详情</a>
                   <a href="https://vip02.fireflyaff.com/#/?code=uTKLkAyC" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="padding:6px 12px; font-weight:700;">直达官网</a>
                 </div>
               </td>
@@ -534,30 +493,25 @@
                 <span class="rank-badge rank-8">8</span>
               </td>
               <td>
-                <div style="font-weight:700; font-size:1.02rem; color:var(--secondary);">跨界 (跨界云)</div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:4px;">
-                  <span class="badge" style="font-size:0.75rem; padding:2px 6px;">Shadowsocks</span>
-                </div>
+                <div class="airport-brand-title">跨界 (跨界云)</div>
+                
               </td>
-              <td>
+              <td style="white-space:nowrap;">
                 <strong style="color:var(--danger); font-size:1.15rem;">¥20</strong>
                 <span style="font-size:0.8rem; color:var(--text-muted);">/月</span>
               </td>
-              <td>
+              <td style="white-space:nowrap;">
                 <strong style="color:var(--text-main); font-size:1.05rem;">120GB</strong>
               </td>
               <td>
-                <span class="badge badge-verified" style="font-size:0.85rem;">Shadowsocks轻量加密</span>
-              </td>
-              <td style="font-size:0.88rem; color:var(--text-muted); max-width:240px;">
-                喜欢 Shadowsocks 简洁协议的高效办公族
+                <span class="line-badge">全专线网络架构</span>
               </td>
               <td>
-                <span style="color:var(--text-light);">-</span>
+                <div class="suitable-text">喜欢 Shadowsocks 简洁协议的高效办公族</div>
               </td>
               <td style="text-align:center;">
                 <div style="display:flex; gap:6px; justify-content:center; align-items:center;">
-                  <a href="./review/kuajiecloud/index.html" class="btn btn-outline btn-sm" style="padding:6px 10px;">评测</a>
+                  <a href="./review/kuajiecloud/index.html" class="btn btn-outline btn-sm" style="padding:6px 10px;">评测详情</a>
                   <a href="https://vip02.kuajieaff.com/#/?code=CpJKZicY" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="padding:6px 12px; font-weight:700;">直达官网</a>
                 </div>
               </td>
@@ -568,34 +522,28 @@
                 <span class="rank-badge rank-9">9</span>
               </td>
               <td>
-                <div style="font-weight:700; font-size:1.02rem; color:var(--secondary);">隐形人</div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:4px;">
-                  <span class="badge" style="font-size:0.75rem; padding:2px 6px;">Shadowsocks</span><span class="badge" style="font-size:0.75rem; padding:2px 6px;">Trojan</span>
+                <div class="airport-brand-title">隐形人</div>
+                
+                <div class="brand-coupon-pill" onclick="copyCouponText('yxr888')" title="点击复制优惠码">
+                  券码: <code>yxr888</code> <span class="copy-hint">复制</span>
                 </div>
               </td>
-              <td>
+              <td style="white-space:nowrap;">
                 <strong style="color:var(--danger); font-size:1.15rem;">¥24</strong>
                 <span style="font-size:0.8rem; color:var(--text-muted);">/月</span>
               </td>
-              <td>
+              <td style="white-space:nowrap;">
                 <strong style="color:var(--text-main); font-size:1.05rem;">144GB</strong>
               </td>
               <td>
-                <span class="badge badge-verified" style="font-size:0.85rem;">专属优惠码 yxr888</span>
-              </td>
-              <td style="font-size:0.88rem; color:var(--text-muted); max-width:240px;">
-                寝室、小型创业团队或多设备重度极客
+                <span class="line-badge">IEPL纯专线架构</span>
               </td>
               <td>
-                
-                <div class="coupon-tag-btn" onclick="copyCouponText('yxr888')" title="点击复制优惠码">
-                  <span class="coupon-text">yxr888</span>
-                  <span class="copy-tip">复制</span>
-                </div>
+                <div class="suitable-text">多设备并发、晚高峰对卡顿零容忍的用户</div>
               </td>
               <td style="text-align:center;">
                 <div style="display:flex; gap:6px; justify-content:center; align-items:center;">
-                  <a href="./review/yinxingren/index.html" class="btn btn-outline btn-sm" style="padding:6px 10px;">评测</a>
+                  <a href="./review/yinxingren/index.html" class="btn btn-outline btn-sm" style="padding:6px 10px;">评测详情</a>
                   <a href="https://varnexa.invisibleaff.com/#/?code=5BkMj6bD" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="padding:6px 12px; font-weight:700;">直达官网</a>
                 </div>
               </td>
@@ -606,30 +554,25 @@
                 <span class="rank-badge rank-10">10</span>
               </td>
               <td>
-                <div style="font-weight:700; font-size:1.02rem; color:var(--secondary);">飞V</div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:4px;">
-                  <span class="badge" style="font-size:0.75rem; padding:2px 6px;">Shadowsocks</span><span class="badge" style="font-size:0.75rem; padding:2px 6px;">V2Ray</span>
-                </div>
+                <div class="airport-brand-title">飞V</div>
+                
               </td>
-              <td>
+              <td style="white-space:nowrap;">
                 <strong style="color:var(--danger); font-size:1.15rem;">¥4.9</strong>
                 <span style="font-size:0.8rem; color:var(--text-muted);">/月</span>
               </td>
-              <td>
+              <td style="white-space:nowrap;">
                 <strong style="color:var(--text-main); font-size:1.05rem;">100GB</strong>
               </td>
               <td>
-                <span class="badge badge-verified" style="font-size:0.85rem;">突破性¥4.9极低月费</span>
-              </td>
-              <td style="font-size:0.88rem; color:var(--text-muted); max-width:240px;">
-                每月用量极少、只想买个不限时套餐备用的用户
+                <span class="line-badge">优化线路（含不限时包）</span>
               </td>
               <td>
-                <span style="color:var(--text-light);">-</span>
+                <div class="suitable-text">极低预算尝鲜、29元不限时应急备用</div>
               </td>
               <td style="text-align:center;">
                 <div style="display:flex; gap:6px; justify-content:center; align-items:center;">
-                  <a href="./review/feiv/index.html" class="btn btn-outline btn-sm" style="padding:6px 10px;">评测</a>
+                  <a href="./review/feiv/index.html" class="btn btn-outline btn-sm" style="padding:6px 10px;">评测详情</a>
                   <a href="https://varnexa.flyvaff.com/#/?code=Ks7qO8qe" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="padding:6px 12px; font-weight:700;">直达官网</a>
                 </div>
               </td>
@@ -640,64 +583,54 @@
                 <span class="rank-badge rank-11">11</span>
               </td>
               <td>
-                <div style="font-weight:700; font-size:1.02rem; color:var(--secondary);">梯子云 LadderCloud</div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:4px;">
-                  <span class="badge" style="font-size:0.75rem; padding:2px 6px;">Shadowsocks</span><span class="badge" style="font-size:0.75rem; padding:2px 6px;">VLESS</span>
-                </div>
+                <div class="airport-brand-title">梯子云 LadderCloud</div>
+                
               </td>
-              <td>
+              <td style="white-space:nowrap;">
                 <strong style="color:var(--danger); font-size:1.15rem;">¥25</strong>
                 <span style="font-size:0.8rem; color:var(--text-muted);">/月</span>
               </td>
-              <td>
+              <td style="white-space:nowrap;">
                 <strong style="color:var(--text-main); font-size:1.05rem;">125GB</strong>
               </td>
               <td>
-                <span class="badge badge-verified" style="font-size:0.85rem;">三网智能选路</span>
-              </td>
-              <td style="font-size:0.88rem; color:var(--text-muted); max-width:240px;">
-                需要稳定中转与大带宽下载的综合日常用户
+                <span class="line-badge">优化中转与专线结合</span>
               </td>
               <td>
-                <span style="color:var(--text-light);">-</span>
+                <div class="suitable-text">需要稳定中转与大带宽下载的综合日常用户</div>
               </td>
               <td style="text-align:center;">
                 <div style="display:flex; gap:6px; justify-content:center; align-items:center;">
-                  <a href="./review/laddercloud/index.html" class="btn btn-outline btn-sm" style="padding:6px 10px;">评测</a>
+                  <a href="./review/laddercloud/index.html" class="btn btn-outline btn-sm" style="padding:6px 10px;">评测详情</a>
                   <a href="https://varnexa.ladderaff.com/#/?code=eC6eLAbq" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="padding:6px 12px; font-weight:700;">直达官网</a>
                 </div>
               </td>
             </tr>
             
-            <tr data-tags="all ai streaming">
+            <tr data-tags="all premium ai streaming">
               <td style="text-align:center;">
                 <span class="rank-badge rank-12">12</span>
               </td>
               <td>
-                <div style="font-weight:700; font-size:1.02rem; color:var(--secondary);">浪网 WaveNet</div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:4px;">
-                  <span class="badge" style="font-size:0.75rem; padding:2px 6px;">VLESS</span><span class="badge" style="font-size:0.75rem; padding:2px 6px;">Trojan</span>
-                </div>
+                <div class="airport-brand-title">浪网 WaveNet</div>
+                
               </td>
-              <td>
+              <td style="white-space:nowrap;">
                 <strong style="color:var(--danger); font-size:1.15rem;">¥30</strong>
                 <span style="font-size:0.8rem; color:var(--text-muted);">/月</span>
               </td>
-              <td>
+              <td style="white-space:nowrap;">
                 <strong style="color:var(--text-main); font-size:1.05rem;">150GB</strong>
               </td>
               <td>
-                <span class="badge badge-verified" style="font-size:0.85rem;">自研客户端深度调优</span>
-              </td>
-              <td style="font-size:0.88rem; color:var(--text-muted); max-width:240px;">
-                追求开箱即用、不想折腾繁琐配置文件的多设备用户
+                <span class="line-badge">自研客户端优化专线</span>
               </td>
               <td>
-                <span style="color:var(--text-light);">-</span>
+                <div class="suitable-text">追求开箱即用、不想折腾繁琐配置文件的多设备用户</div>
               </td>
               <td style="text-align:center;">
                 <div style="display:flex; gap:6px; justify-content:center; align-items:center;">
-                  <a href="./review/wavenet/index.html" class="btn btn-outline btn-sm" style="padding:6px 10px;">评测</a>
+                  <a href="./review/wavenet/index.html" class="btn btn-outline btn-sm" style="padding:6px 10px;">评测详情</a>
                   <a href="https://varnexa.wavenetaff.com/#/?code=8fwQQBdy" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="padding:6px 12px; font-weight:700;">直达官网</a>
                 </div>
               </td>
@@ -708,68 +641,57 @@
                 <span class="rank-badge rank-13">13</span>
               </td>
               <td>
-                <div style="font-weight:700; font-size:1.02rem; color:var(--secondary);">灵动云</div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:4px;">
-                  <span class="badge" style="font-size:0.75rem; padding:2px 6px;">Trojan</span><span class="badge" style="font-size:0.75rem; padding:2px 6px;">Shadowsocks</span>
-                </div>
+                <div class="airport-brand-title">灵动云</div>
+                
               </td>
-              <td>
+              <td style="white-space:nowrap;">
                 <strong style="color:var(--danger); font-size:1.15rem;">¥20</strong>
                 <span style="font-size:0.8rem; color:var(--text-muted);">/月</span>
               </td>
-              <td>
+              <td style="white-space:nowrap;">
                 <strong style="color:var(--text-main); font-size:1.05rem;">100GB</strong>
               </td>
               <td>
-                <span class="badge badge-verified" style="font-size:0.85rem;">Trojan安全防封</span>
-              </td>
-              <td style="font-size:0.88rem; color:var(--text-muted); max-width:240px;">
-                日常 Google 查资料、写论文和轻度浏览的大学生及研究生
+                <span class="line-badge">优化节点加速</span>
               </td>
               <td>
-                <span style="color:var(--text-light);">-</span>
+                <div class="suitable-text">日常 Google 查资料、写论文和轻度浏览</div>
               </td>
               <td style="text-align:center;">
                 <div style="display:flex; gap:6px; justify-content:center; align-items:center;">
-                  <a href="./review/lingdongcloud/index.html" class="btn btn-outline btn-sm" style="padding:6px 10px;">评测</a>
+                  <a href="./review/lingdongcloud/index.html" class="btn btn-outline btn-sm" style="padding:6px 10px;">评测详情</a>
                   <a href="https://varnexa.lingdongaff.com/#/?code=kd4yTgUr" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="padding:6px 12px; font-weight:700;">直达官网</a>
                 </div>
               </td>
             </tr>
             
-            <tr data-tags="all ai streaming">
+            <tr data-tags="all premium ai streaming">
               <td style="text-align:center;">
                 <span class="rank-badge rank-14">14</span>
               </td>
               <td>
-                <div style="font-weight:700; font-size:1.02rem; color:var(--secondary);">全球云</div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:4px;">
-                  <span class="badge" style="font-size:0.75rem; padding:2px 6px;">VLESS</span><span class="badge" style="font-size:0.75rem; padding:2px 6px;">Trojan</span>
+                <div class="airport-brand-title">全球云</div>
+                
+                <div class="brand-coupon-pill" onclick="copyCouponText('tt88')" title="点击复制优惠码">
+                  券码: <code>tt88</code> <span class="copy-hint">复制</span>
                 </div>
               </td>
-              <td>
+              <td style="white-space:nowrap;">
                 <strong style="color:var(--danger); font-size:1.15rem;">¥20</strong>
                 <span style="font-size:0.8rem; color:var(--text-muted);">/月</span>
               </td>
-              <td>
+              <td style="white-space:nowrap;">
                 <strong style="color:var(--text-main); font-size:1.05rem;">120GB</strong>
               </td>
               <td>
-                <span class="badge badge-verified" style="font-size:0.85rem;">专属优惠码 tt88</span>
-              </td>
-              <td style="font-size:0.88rem; color:var(--text-muted); max-width:240px;">
-                寻找平衡价格与稳定性的日常综合上网用户
+                <span class="line-badge">全球加速专线中继</span>
               </td>
               <td>
-                
-                <div class="coupon-tag-btn" onclick="copyCouponText('tt88')" title="点击复制优惠码">
-                  <span class="coupon-text">tt88</span>
-                  <span class="copy-tip">复制</span>
-                </div>
+                <div class="suitable-text">跨境商务、外贸SOHO与多国流媒体解析</div>
               </td>
               <td style="text-align:center;">
                 <div style="display:flex; gap:6px; justify-content:center; align-items:center;">
-                  <a href="./review/quanqiuyun/index.html" class="btn btn-outline btn-sm" style="padding:6px 10px;">评测</a>
+                  <a href="./review/quanqiuyun/index.html" class="btn btn-outline btn-sm" style="padding:6px 10px;">评测详情</a>
                   <a href="https://sswdh.gcvipaff.com/#/?code=8N1mSmYo" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="padding:6px 12px; font-weight:700;">直达官网</a>
                 </div>
               </td>
