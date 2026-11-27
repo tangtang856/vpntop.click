@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>什么是 Shadowsocks (SS)？轻量加密代理协议的起源与现状 | VPN Top</title>
+  <meta name="description" content="Shadowsocks协议百科。科普轻量级Socks5加密代理协议的设计初衷、AEAD现代化加密特性、低计算开销优势及其在专线机场中的主力地位。">
+  <link rel="canonical" href="https://vpntop.click/glossary/shadowsocks/">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:title" content="什么是 Shadowsocks (SS)？轻量加密代理协议的起源与现状 | VPN Top">
+  <meta property="og:description" content="Shadowsocks协议百科。科普轻量级Socks5加密代理协议的设计初衷、AEAD现代化加密特性、低计算开销优势及其在专线机场中的主力地位。">
+  <meta property="og:url" content="https://vpntop.click/glossary/shadowsocks/">
+  <meta property="og:site_name" content="VPN Top">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="什么是 Shadowsocks (SS)？轻量加密代理协议的起源与现状 | VPN Top">
+  <meta name="twitter:description" content="Shadowsocks协议百科。科普轻量级Socks5加密代理协议的设计初衷、AEAD现代化加密特性、低计算开销优势及其在专线机场中的主力地位。">
+  <!-- Native Clean CSS (Strictly Relative Path) -->
+  <link rel="stylesheet" href="../../css/style.css">
+  
+</head>
+<body>
+  
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../../index.html" class="site-logo">
+        <span class="badge-logo">VPN TOP</span>
+        <span>机场评测网</span>
+      </a>
+      <nav class="main-nav" aria-label="全站导航">
+        <a href="../../index.html" class="">首页</a>
+        <a href="../../recommend/stable/index.html" class="">机场推荐</a>
+        <a href="../../ranking/overall/index.html" class="">机场排行</a>
+        <a href="../../compare/index.html" class="">机场对比</a>
+        <a href="../../guides/index.html" class="">使用教程</a>
+        <a href="../../blog/index.html" class="active">博客文章</a>
+      </nav>
+      <div class="header-actions">
+        <a href="../../compare/index.html" class="btn btn-outline btn-sm">横向对比</a>
+      </div>
+      <button class="nav-toggle-btn" aria-label="切换导航菜单" aria-expanded="false">&#9776;</button>
+    </div>
+  </header>
+  
+  <nav class="breadcrumb-bar" aria-label="面包屑导航">
+    <div class="container">
+      <ul class="breadcrumb-list">
+        <li><a href="../../index.html">首页</a></li>
+        <li><a href="../../glossary/iplc/index.html">知识百科</a></li><li aria-current="page">Shadowsocks (SS) 协议百科与发展历程</li>
+      </ul>
+    </div>
+  </nav>
+  <main>
+    
+    <article class="container article-container" style="padding-top:40px; padding-bottom:60px;">
+      <div class="article-header">
+        <h1 class="article-title">Shadowsocks (SS) 协议百科与发展历程</h1>
+        <div class="article-meta">
+          <span>📚 类别：网络技术词典</span>
+          <span>📅 更新时间：2026年11月</span>
+          <span>🔍 编审：VPN Top 技术词条委员会</span>
+        </div>
+      </div>
+
+      <div class="quick-answer-card">
+        <div class="quick-answer-header">
+          <span>📖 权威定义</span>
+        </div>
+        <p style="color:var(--text-main); font-size:1.05rem; line-height:1.7; font-weight:500;">
+          Shadowsocks（简称 SS）是一种轻量级安全 SOCKS5 代理协议。其特点是客户端和服务端之间采用高效的对称加密（如 AEAD 密码学套件），开销极小且极其稳定，至今仍是高速专线内网传输的首选协议。
+        </p>
+      </div>
+
+      <div class="article-content">
+        <h2>为什么该技术对科学上网至关重要？</h2>
+        <p>
+          在当今复杂的国际互联网互联互通背景下，理解<strong>Shadowsocks (SS) 协议百科与发展历程</strong>能够帮助消费者建立清晰的技术认知，不再被黑心商家“花哨虚标”的宣传口号所蒙蔽。
+        </p>
+        <p>
+          通过采用合规物理专线与轻量加密封装，流量在境内落地端就已经完成了定向分流，不经过公网审查节点，因此在延迟敏感度（如跨国即时通讯、跨国会议语音与游戏联机）上具备压倒性优势。
+        </p>
+
+        <h2>相关概念横向关联</h2>
+        <ul>
+          <li>查阅使用该技术的服务商：<a href="../../ranking/overall/index.html">2026 优质VPN机场综合实力排行榜</a></li>
+          <li>技术深度横评对比：<a href="../../blog/iepl-vs-iplc/index.html">IEPL 与 IPLC 专线全面原理解析</a></li>
+          <li>客户端实操配置指南：<a href="../../guides/windows/index.html">Windows 客户端配置指南</a></li>
+        </ul>
+
+        <div class="notice-box">
+          <strong>想直接挑选搭载专线的成熟梯子？</strong>
+          建议参考我们的 <a href="../../recommend/stable/index.html">高质量稳定专线节点推荐</a> 或进入 <a href="../../compare/index.html">机场横向对比工具</a> 对齐各家配置。
+        </div>
+
+        <div class="related-posts">
+          <h3>相关词条推荐</h3>
+          <div class="related-grid">
+            <a href="../../glossary/iplc/index.html" class="related-card">
+              <h4>IPLC 专线</h4>
+              <span>国际私有租用线路</span>
+            </a>
+            <a href="../../glossary/iepl/index.html" class="related-card">
+              <h4>IEPL 专线</h4>
+              <span>国际以太网专线</span>
+            </a>
+            <a href="../../glossary/clash/index.html" class="related-card">
+              <h4>Clash / Mihomo</h4>
+              <span>规则分流引擎</span>
+            </a>
+            <a href="../../glossary/shadowsocks/index.html" class="related-card">
+              <h4>Shadowsocks</h4>
+              <span>轻量级加密代理</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h5>关于 VPN Top (vpntop.click)</h5>
+          <p style="margin-bottom:12px; line-height:1.6; color:#94a3b8;">
+            专注真实客观的中文机场推荐、翻墙梯子测评、IPLC/IEPL高速专线节点监测与网络加速科普。汇聚 14 款核验品牌，杜绝虚假跑分，秉持数据透明与中立原则。
+          </p>
+          <p style="color:#64748b; font-size:0.82rem;">主攻搜索词：机场推荐 · 性价比机场 · 梯子推荐 · 机场节点 · vpn机场推荐</p>
+        </div>
+        <div class="footer-col">
+          <h5>专题推荐</h5>
+          <ul>
+            <li><a href="../../recommend/budget/index.html">低预算便宜机场</a></li>
+            <li><a href="../../recommend/premium/index.html">高端IPLC专线机场</a></li>
+            <li><a href="../../recommend/stable/index.html">稳定晚高峰机场</a></li>
+            <li><a href="../../recommend/ai/index.html">AI / ChatGPT 专用节点</a></li>
+            <li><a href="../../recommend/streaming/index.html">4K 流媒体解锁机场</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>排行榜与精选评测</h5>
+          <ul>
+            <li><a href="../../ranking/overall/index.html">2026综合实力总榜</a></li>
+            <li><a href="../../ranking/value/index.html">高性价比机场排行</a></li>
+            <li><a href="../../compare/index.html">机场横向对比工具</a></li>
+            <li><a href="../../review/breezenet/index.html">微风网络 Breezenet 评测</a></li>
+            <li><a href="../../review/yinxingren/index.html">隐形人 深度评测</a></li>
+            <li><a href="../../review/lingmao/index.html">灵猫 深度评测</a></li>
+            <li><a href="../../review/feiv/index.html">飞V 深度评测</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>站点政策与服务</h5>
+          <ul>
+            <li><a href="../../about/index.html">关于我们</a></li>
+            <li><a href="../../contact/index.html">联系编辑部</a></li>
+            <li><a href="../../editorial-policy/index.html">客观编辑政策</a></li>
+            <li><a href="../../privacy-policy/index.html">隐私政策</a></li>
+            <li><a href="../../disclaimer/index.html">合规免责声明</a></li>
+            <li><a href="../../sitemap.xml">XML 网站地图</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 VPN Top (vpntop.click) - 保留所有权利。遵循客观独立测评规范。</div>
+        <div>全站纯 HTML 极速架构 | Bing SEO 强化版</div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

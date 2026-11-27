@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mac电脑科学上网教程 - Clash Verge与Surge Mac保姆级指南 | VPN Top</title>
+  <meta name="description" content="Mac苹果电脑科学上网指南。详解Clash Verge macOS版安装、Apple芯片与Intel原生适配、TUN增强模式配置以及终端命令行代理技巧。">
+  <link rel="canonical" href="https://vpntop.click/guides/macos/">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:title" content="Mac电脑科学上网教程 - Clash Verge与Surge Mac保姆级指南 | VPN Top">
+  <meta property="og:description" content="Mac苹果电脑科学上网指南。详解Clash Verge macOS版安装、Apple芯片与Intel原生适配、TUN增强模式配置以及终端命令行代理技巧。">
+  <meta property="og:url" content="https://vpntop.click/guides/macos/">
+  <meta property="og:site_name" content="VPN Top">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mac电脑科学上网教程 - Clash Verge与Surge Mac保姆级指南 | VPN Top">
+  <meta name="twitter:description" content="Mac苹果电脑科学上网指南。详解Clash Verge macOS版安装、Apple芯片与Intel原生适配、TUN增强模式配置以及终端命令行代理技巧。">
+  <!-- Native Clean CSS (Strictly Relative Path) -->
+  <link rel="stylesheet" href="../../css/style.css">
+  
+</head>
+<body>
+  
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../../index.html" class="site-logo">
+        <span class="badge-logo">VPN TOP</span>
+        <span>机场评测网</span>
+      </a>
+      <nav class="main-nav" aria-label="全站导航">
+        <a href="../../index.html" class="">首页</a>
+        <a href="../../recommend/stable/index.html" class="">机场推荐</a>
+        <a href="../../ranking/overall/index.html" class="">机场排行</a>
+        <a href="../../compare/index.html" class="">机场对比</a>
+        <a href="../../guides/index.html" class="active">使用教程</a>
+        <a href="../../blog/index.html" class="">博客文章</a>
+      </nav>
+      <div class="header-actions">
+        <a href="../../compare/index.html" class="btn btn-outline btn-sm">横向对比</a>
+      </div>
+      <button class="nav-toggle-btn" aria-label="切换导航菜单" aria-expanded="false">&#9776;</button>
+    </div>
+  </header>
+  
+  <nav class="breadcrumb-bar" aria-label="面包屑导航">
+    <div class="container">
+      <ul class="breadcrumb-list">
+        <li><a href="../../index.html">首页</a></li>
+        <li><a href="../../guides/index.html">使用教程</a></li><li aria-current="page">macOS 平台机场节点设置指南</li>
+      </ul>
+    </div>
+  </nav>
+  <main>
+    
+    <article class="container article-container" style="padding-top:40px; padding-bottom:60px;">
+      <div class="article-header">
+        <span class="badge badge-verified" style="margin-bottom:10px;">桌面端系统</span>
+        <h1 class="article-title">macOS 平台机场节点设置指南：兼顾规则分流与系统增强模式</h1>
+        <div class="article-meta">
+          <span>📅 更新时间：2026年11月</span>
+          <span>💻 适用环境：桌面端系统</span>
+          <span>⏱️ 阅读时长：约 5-8 分钟实操</span>
+        </div>
+      </div>
+
+      <div class="quick-answer-card">
+        <div class="quick-answer-header">
+          <span>💡 教程导读与核心目的</span>
+        </div>
+        <p style="color:var(--text-muted); font-size:1rem; line-height:1.7;">
+          Mac 用户不仅需要浏览器代理，更常涉及终端命令行（Git、Homebrew、Docker）加速。选用支持 TUN 增强模式的客户端能够实现系统级完全透明代理。
+        </p>
+      </div>
+
+      <div class="article-content">
+        <h2>图文实操步骤分解</h2>
+        
+        <div style="background-color:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:20px; margin:20px 0;">
+          <h3 style="margin-top:0; color:var(--secondary); font-size:1.15rem;">第一步：根据芯片类型下载 DMG 安装包</h3>
+          <p style="margin-bottom:0; color:var(--text-main); font-size:0.98rem; line-height:1.7;">
+            确认你的 Mac 是 Apple Silicon（M1/M2/M3/M4）还是 Intel 处理器，下载对应的 arm64 或 x64 版 Clash Verge Rev 并拖入 Applications 目录。
+          </p>
+        </div>
+        
+        <div style="background-color:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:20px; margin:20px 0;">
+          <h3 style="margin-top:0; color:var(--secondary); font-size:1.15rem;">第二步：导入订阅并配置自动更新</h3>
+          <p style="margin-bottom:0; color:var(--text-main); font-size:0.98rem; line-height:1.7;">
+            在【Profiles】界面填入订阅链接，建议将定时自动更新间隔设置为 24 小时，以便服务商更换失效节点时本地能够自动同步。
+          </p>
+        </div>
+        
+        <div style="background-color:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:20px; margin:20px 0;">
+          <h3 style="margin-top:0; color:var(--secondary); font-size:1.15rem;">第三步：配置 TUN 虚拟网卡模式</h3>
+          <p style="margin-bottom:0; color:var(--text-main); font-size:0.98rem; line-height:1.7;">
+            在【设置】中安装 Service Mode 服务模式并开启【TUN Mode】，这样系统所有非 Web 流量（包括终端 git clone 和远程 SSH）都会被自动代理接管。
+          </p>
+        </div>
+        
+
+        <h2>常见报错排查技巧 (Troubleshooting)</h2>
+        <p>
+          <strong>1. 节点全部超时或 Ping 为 Timeout：</strong>
+          首先检查电脑或手机的【系统时间】是否精确对齐网络标准北京时间。时间偏差超过 90 秒会导致 TLS 握手彻底失败。其次检查订阅链接是否已过期或流量耗尽。
+        </p>
+        <p>
+          <strong>2. 能打开 Google 但微信图片加载不出来：</strong>
+          说明误开启了【全局代理 (Global)】模式。请在代理设置中切换回【规则 (Rule)】模式，让国内流量自动绕过代理走本地直连。
+        </p>
+        <p>
+          <strong>3. 提示 Port already in use 端口被占用：</strong>
+          通常是由于旧的客户端后台进程没有退出彻底，或与其他加速器冲突。在任务管理器中结束对应进程，或在设置中将端口从 7890 修改为 7892 即可解决。
+        </p>
+
+        <div class="notice-box">
+          <strong>还没有好用的机场节点？</strong>
+          客户端只是工具外壳，网络速度的核心取决于机场节点的质量。推荐查看我们的 <a href="../../ranking/overall/index.html">2026 优质VPN机场综合实力排行榜</a> 或 <a href="../../ranking/value/index.html">高性价比专线梯子推荐</a>。
+        </div>
+
+        <div class="related-posts">
+          <h3>更多新手教程与平台指南</h3>
+          <div class="related-grid">
+            <a href="../../guides/windows/index.html" class="related-card">
+              <h4>🖥️ Windows 配置教程</h4>
+              <span>Clash Verge 实战</span>
+            </a>
+            <a href="../../guides/android/index.html" class="related-card">
+              <h4>📱 Android 配置教程</h4>
+              <span>Clash Meta 手机端</span>
+            </a>
+            <a href="../../guides/ios/index.html" class="related-card">
+              <h4>🍏 iOS 小火箭配置</h4>
+              <span>Shadowrocket 指南</span>
+            </a>
+            <a href="../../guides/clash-meta/index.html" class="related-card">
+              <h4>🛠️ Clash Meta 内核进阶</h4>
+              <span>分流规则与 DNS 优化</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h5>关于 VPN Top (vpntop.click)</h5>
+          <p style="margin-bottom:12px; line-height:1.6; color:#94a3b8;">
+            专注真实客观的中文机场推荐、翻墙梯子测评、IPLC/IEPL高速专线节点监测与网络加速科普。汇聚 14 款核验品牌，杜绝虚假跑分，秉持数据透明与中立原则。
+          </p>
+          <p style="color:#64748b; font-size:0.82rem;">主攻搜索词：机场推荐 · 性价比机场 · 梯子推荐 · 机场节点 · vpn机场推荐</p>
+        </div>
+        <div class="footer-col">
+          <h5>专题推荐</h5>
+          <ul>
+            <li><a href="../../recommend/budget/index.html">低预算便宜机场</a></li>
+            <li><a href="../../recommend/premium/index.html">高端IPLC专线机场</a></li>
+            <li><a href="../../recommend/stable/index.html">稳定晚高峰机场</a></li>
+            <li><a href="../../recommend/ai/index.html">AI / ChatGPT 专用节点</a></li>
+            <li><a href="../../recommend/streaming/index.html">4K 流媒体解锁机场</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>排行榜与精选评测</h5>
+          <ul>
+            <li><a href="../../ranking/overall/index.html">2026综合实力总榜</a></li>
+            <li><a href="../../ranking/value/index.html">高性价比机场排行</a></li>
+            <li><a href="../../compare/index.html">机场横向对比工具</a></li>
+            <li><a href="../../review/breezenet/index.html">微风网络 Breezenet 评测</a></li>
+            <li><a href="../../review/yinxingren/index.html">隐形人 深度评测</a></li>
+            <li><a href="../../review/lingmao/index.html">灵猫 深度评测</a></li>
+            <li><a href="../../review/feiv/index.html">飞V 深度评测</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>站点政策与服务</h5>
+          <ul>
+            <li><a href="../../about/index.html">关于我们</a></li>
+            <li><a href="../../contact/index.html">联系编辑部</a></li>
+            <li><a href="../../editorial-policy/index.html">客观编辑政策</a></li>
+            <li><a href="../../privacy-policy/index.html">隐私政策</a></li>
+            <li><a href="../../disclaimer/index.html">合规免责声明</a></li>
+            <li><a href="../../sitemap.xml">XML 网站地图</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 VPN Top (vpntop.click) - 保留所有权利。遵循客观独立测评规范。</div>
+        <div>全站纯 HTML 极速架构 | Bing SEO 强化版</div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

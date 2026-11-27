@@ -1,15 +1,15 @@
 {
   "name": "vpntop-click",
-  "version": "2.0.0",
-  "description": "VPN Top - 2026中文机场博客与Bing SEO专业建站系统 (VitePress版)",
-  "type": "module",
+  "version": "1.0.0",
+  "description": "VPN Top - 2026中文机场博客与Bing SEO专业建站系统",
+  "main": "index.html",
   "scripts": {
-    "dev": "vitepress dev docs",
-    "build": "vitepress build docs",
-    "preview": "vitepress preview docs",
-    "setup": "node scripts/setup-vitepress.js",
-    "test": "node scripts/test-vitepress.js",
-    "indexnow": "node scripts/indexnow.cjs"
+    "build": "node scripts/build-all.js",
+    "test": "node scripts/audit-seo.js && node scripts/check-links.js && node scripts/validate-content.js",
+    "audit": "node scripts/audit-seo.js",
+    "check-links": "node scripts/check-links.js",
+    "validate": "node scripts/validate-content.js",
+    "indexnow": "node scripts/indexnow.js"
   },
   "keywords": [
     "机场推荐",
@@ -22,11 +22,5 @@
     "vpn推荐"
   ],
   "author": "VPN Top Editorial Team",
-  "license": "MIT",
-  "dependencies": {
-    "vue": "^3.5.13"
-  },
-  "devDependencies": {
-    "vitepress": "^1.6.3"
-  }
+  "license": "MIT"
 }
