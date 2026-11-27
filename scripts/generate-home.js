@@ -243,9 +243,12 @@ function generateHomepage() {
     <div class="container">
       <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:32px;">
         <div>
-          <div class="section-head">
-            <h2 class="section-title">新手翻墙教程中心</h2>
-            <p class="section-desc">主流操作系统客户端安装、配置与订阅规则分流设置</p>
+          <div class="section-head" style="display:flex; justify-content:space-between; align-items:flex-end;">
+            <div>
+              <h2 class="section-title">新手翻墙教程中心</h2>
+              <p class="section-desc">主流操作系统客户端安装、配置与订阅规则分流设置</p>
+            </div>
+            <a href="${rel}guides/index.html" style="font-size:0.9rem; color:var(--primary); font-weight:600; text-decoration:none; white-space:nowrap; margin-bottom:8px;">查看全部 30 篇教程 &rarr;</a>
           </div>
           <div style="display:flex; flex-direction:column; gap:12px;">
             <a href="${rel}guides/windows/index.html" class="card" style="padding:16px; text-decoration:none;">
@@ -268,9 +271,12 @@ function generateHomepage() {
         </div>
 
         <div>
-          <div class="section-head">
-            <h2 class="section-title">行业知识与深度博文</h2>
-            <p class="section-desc">透视网络专线原理，避开营销虚标陷阱与安全风险</p>
+          <div class="section-head" style="display:flex; justify-content:space-between; align-items:flex-end;">
+            <div>
+              <h2 class="section-title">行业知识与深度博文</h2>
+              <p class="section-desc">透视网络专线原理，避开营销虚标陷阱与安全风险</p>
+            </div>
+            <a href="${rel}blog/index.html" style="font-size:0.9rem; color:var(--primary); font-weight:600; text-decoration:none; white-space:nowrap; margin-bottom:8px;">查看全部 100 篇专栏 &rarr;</a>
           </div>
           <div style="display:flex; flex-direction:column; gap:12px;">
             <a href="${rel}blog/how-to-choose-airport/index.html" class="card" style="padding:16px; text-decoration:none;">

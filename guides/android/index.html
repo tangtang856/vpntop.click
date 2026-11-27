@@ -34,8 +34,8 @@
         <a href="../../recommend/stable/index.html" class="">机场推荐</a>
         <a href="../../ranking/overall/index.html" class="">机场排行</a>
         <a href="../../compare/index.html" class="">机场对比</a>
-        <a href="../../guides/windows/index.html" class="active">使用教程</a>
-        <a href="../../blog/how-to-choose-airport/index.html" class="">博客文章</a>
+        <a href="../../guides/index.html" class="active">使用教程</a>
+        <a href="../../blog/index.html" class="">博客文章</a>
       </nav>
       <div class="header-actions">
         <a href="../../compare/index.html" class="btn btn-outline btn-sm">横向对比</a>
@@ -48,7 +48,7 @@
     <div class="container">
       <ul class="breadcrumb-list">
         <li><a href="../../index.html">首页</a></li>
-        <li><a href="../../guides/windows/index.html">使用教程</a></li><li aria-current="page">Android 手机梯子客户端配置教程</li>
+        <li><a href="../../guides/index.html">使用教程</a></li><li aria-current="page">Android 手机梯子客户端配置教程</li>
       </ul>
     </div>
   </nav>
@@ -56,17 +56,18 @@
     
     <article class="container article-container" style="padding-top:40px; padding-bottom:60px;">
       <div class="article-header">
+        <span class="badge badge-verified" style="margin-bottom:10px;">移动端系统</span>
         <h1 class="article-title">Android 手机梯子客户端配置教程：Clash Meta 与 v2rayNG 快速入门</h1>
         <div class="article-meta">
           <span>📅 更新时间：2026年11月</span>
-          <span>💻 操作系统：ANDROID</span>
-          <span>⏱️ 阅读时长：约 5 分钟实操</span>
+          <span>💻 适用环境：移动端系统</span>
+          <span>⏱️ 阅读时长：约 5-8 分钟实操</span>
         </div>
       </div>
 
       <div class="quick-answer-card">
         <div class="quick-answer-header">
-          <span>💡 教程导读</span>
+          <span>💡 教程导读与核心目的</span>
         </div>
         <p style="color:var(--text-muted); font-size:1rem; line-height:1.7;">
           Android 系统的开放性使其拥有丰富的客户端选择。对于新手，我们首推界面简洁且支持现代化 Mihomo 内核的 Clash Meta for Android。
@@ -86,7 +87,7 @@
         <div style="background-color:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:20px; margin:20px 0;">
           <h3 style="margin-top:0; color:var(--secondary); font-size:1.15rem;">第二步：在手机端导入订阅</h3>
           <p style="margin-bottom:0; color:var(--text-main); font-size:0.98rem; line-height:1.7;">
-            进入应用主页，点击【配置】&rarr;【新配置】&rarr;【从 URL 导入】。填入机场提供的订阅链接，命名后点击右上角保存并拉取配置。
+            进入应用主页，点击【配置】->【新配置】->【从 URL 导入】。填入机场提供的订阅链接，命名后点击右上角保存并拉取配置。
           </p>
         </div>
         
@@ -114,6 +115,10 @@
           <strong>2. 能打开 Google 但微信图片加载不出来：</strong>
           说明误开启了【全局代理 (Global)】模式。请在代理设置中切换回【规则 (Rule)】模式，让国内流量自动绕过代理走本地直连。
         </p>
+        <p>
+          <strong>3. 提示 Port already in use 端口被占用：</strong>
+          通常是由于旧的客户端后台进程没有退出彻底，或与其他加速器冲突。在任务管理器中结束对应进程，或在设置中将端口从 7890 修改为 7892 即可解决。
+        </p>
 
         <div class="notice-box">
           <strong>还没有好用的机场节点？</strong>
@@ -121,19 +126,19 @@
         </div>
 
         <div class="related-posts">
-          <h3>相关平台与进阶教程推荐</h3>
+          <h3>更多新手教程与平台指南</h3>
           <div class="related-grid">
             <a href="../../guides/windows/index.html" class="related-card">
-              <h4>🖥️ Windows 客户端实操指南</h4>
-              <span>Clash Verge 配置图解</span>
+              <h4>🖥️ Windows 配置教程</h4>
+              <span>Clash Verge 实战</span>
             </a>
             <a href="../../guides/android/index.html" class="related-card">
-              <h4>📱 Android 客户端保姆级教程</h4>
-              <span>Clash Meta / v2rayNG</span>
+              <h4>📱 Android 配置教程</h4>
+              <span>Clash Meta 手机端</span>
             </a>
             <a href="../../guides/ios/index.html" class="related-card">
-              <h4>🍏 iOS 小火箭配置指南</h4>
-              <span>美区ID与订阅导入</span>
+              <h4>🍏 iOS 小火箭配置</h4>
+              <span>Shadowrocket 指南</span>
             </a>
             <a href="../../guides/clash-meta/index.html" class="related-card">
               <h4>🛠️ Clash Meta 内核进阶</h4>

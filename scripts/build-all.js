@@ -7,15 +7,16 @@ const { generateRankings } = require('./generate-rankings.js');
 const { generateCompare } = require('./generate-compare.js');
 const { generateRecommendations } = require('./generate-recommend.js');
 const { generateReviews } = require('./generate-reviews.js');
-const { generateGuides } = require('./generate-guides.js');
-const { generateBlogs } = require('./generate-blogs.js');
+const { generateGuidesFull, allGuides } = require('./generate-guides-full.js');
+const { generateBlogsFull } = require('./generate-blogs-full.js');
+const { allBlogs } = require('./blogs-data.js');
 const { generateGlossary } = require('./generate-glossary.js');
 const { generateTrustPages } = require('./generate-trust.js');
 
 const DOMAIN = 'https://vpntop.click';
 const INDEXNOW_KEY = 'f23cb41920784260a48b5e98586909cb';
 
-console.log('=== [VPNTOP.CLICK] BUILD PIPELINE STARTING (14 BRANDS) ===');
+console.log('=== [VPNTOP.CLICK] BUILD PIPELINE STARTING (14 BRANDS + 30 GUIDES + 100 BLOGS) ===');
 
 // 1. Generate All Pages
 generateHomepage();
@@ -23,8 +24,8 @@ generateRankings();
 generateCompare();
 generateRecommendations();
 generateReviews();
-generateGuides();
-generateBlogs();
+generateGuidesFull();
+generateBlogsFull();
 generateGlossary();
 generateTrustPages();
 
@@ -44,18 +45,12 @@ const sitemapUrls = [
   '/recommend/streaming/',
   // 14 Brand Reviews
   ...airports.map(a => `/review/${a.id}/`),
-  // Guides
-  '/guides/windows/',
-  '/guides/android/',
-  '/guides/ios/',
-  '/guides/macos/',
-  '/guides/clash-meta/',
-  // Blog
-  '/blog/how-to-choose-airport/',
-  '/blog/iepl-vs-iplc/',
-  '/blog/protocol-comparison/',
-  '/blog/airport-speedtest-myths/',
-  '/blog/airport-security-privacy/',
+  // Guides Hub & 30 Guides
+  '/guides/',
+  ...allGuides.map(g => `/guides/${g.slug}/`),
+  // Blog Hub & 100 Blog Posts
+  '/blog/',
+  ...allBlogs.map(b => `/blog/${b.slug}/`),
   // Glossary
   '/glossary/iplc/',
   '/glossary/iepl/',

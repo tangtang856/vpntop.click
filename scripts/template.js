@@ -25,8 +25,8 @@ function renderHeader(depth, activeNav) {
         <a href="${rel}recommend/stable/index.html" class="${activeNav === 'recommend' ? 'active' : ''}">机场推荐</a>
         <a href="${rel}ranking/overall/index.html" class="${activeNav === 'ranking' ? 'active' : ''}">机场排行</a>
         <a href="${rel}compare/index.html" class="${activeNav === 'compare' ? 'active' : ''}">机场对比</a>
-        <a href="${rel}guides/windows/index.html" class="${activeNav === 'guides' ? 'active' : ''}">使用教程</a>
-        <a href="${rel}blog/how-to-choose-airport/index.html" class="${activeNav === 'blog' ? 'active' : ''}">博客文章</a>
+        <a href="${rel}guides/index.html" class="${activeNav === 'guides' ? 'active' : ''}">使用教程</a>
+        <a href="${rel}blog/index.html" class="${activeNav === 'blog' ? 'active' : ''}">博客文章</a>
       </nav>
       <div class="header-actions">
         <a href="${rel}compare/index.html" class="btn btn-outline btn-sm">横向对比</a>
