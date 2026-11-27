@@ -92,7 +92,7 @@ function generateBlogs() {
           1. <strong>坚持按月支付：</strong>哪怕某家机场吹嘘得天花乱坠，在初次购买时都只购买月付套餐。经历过敏感时期（如每年重要国家会议）检验后，再决定是否续费。
         </p>
         <p>
-          2. <strong>准备双机场互备：</strong>主力机场选择品质极高、线路稳定的专线梯子（如 <a href="${rel}review/wgetcloud/index.html">WgetCloud</a> 或 <a href="${rel}review/kuromi/index.html">Kuromi</a>），备用梯子可配置一个价格极低或不限时的套餐（如 <a href="${rel}review/tag/index.html">TAG VPN 不限时包</a> 或 <a href="${rel}review/flyingbird/index.html">FlyingBird</a>），彻底杜绝断网失联风险。
+          2. <strong>准备双机场互备：</strong>主力机场选择品质极高、线路稳定的专线梯子（如 <a href="${rel}review/yinxingren/index.html">隐形人</a> 或 <a href="${rel}review/breezenet/index.html">微风网络 Breezenet</a>），备用梯子可配置一个价格极低或不限时的套餐（如 <a href="${rel}review/feiv/index.html">飞V 29元不限时包</a> 或 <a href="${rel}review/feimaoyun/index.html">飞猫云</a>），彻底杜绝断网失联风险。
         </p>
 
         <div class="notice-box">

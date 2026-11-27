@@ -1,7 +1,6 @@
 const { airports } = require('../data/airports.js');
 const { DOMAIN, renderPage, saveHtmlFile } = require('./template.js');
 
-// 1. GENERATE HOMEPAGE (index.html)
 function generateHomepage() {
   const depth = 0;
   const rel = './';
@@ -65,7 +64,7 @@ function generateHomepage() {
         <div class="quick-answer-item">
           <strong>1. 新手应该如何选择？</strong>
           <p style="font-size:0.88rem; color:var(--text-muted); margin-top:4px;">
-            优先选择月付 15-25 元起、支持主流客户端一键导入的成熟专线梯子（如 Kuromi 或 FlyingBird），坚决避免一次性年付不知名小机场。
+            优先选择月付 8-20 元起、支持主流客户端一键导入的成熟专线梯子（如微风网络 Breezenet、飞猫云或飞V），坚决避免一次性年付不知名小机场。
           </p>
         </div>
         <div class="quick-answer-item">
@@ -77,7 +76,7 @@ function generateHomepage() {
         <div class="quick-answer-item">
           <strong>3. 如何判断套餐单价是否划算？</strong>
           <p style="font-size:0.88rem; color:var(--text-muted); margin-top:4px;">
-            计算公式：每 GB 单价 = 月费 ÷ 实际可用流量。目前优质 IEPL 专线的合理均价为 0.10~0.25 元/GB，超出 0.50 元/GB 属于轻奢或冷门定位。
+            计算公式：每 GB 单价 = 月费 ÷ 实际可用流量。微风网络低至 0.040 元/GB，飞猫云 0.046 元/GB，超出 0.30 元/GB 属于高溢价定位。
           </p>
         </div>
         <div class="quick-answer-item">
@@ -90,15 +89,15 @@ function generateHomepage() {
     </div>
   </div>
 
-  <!-- Section 4: 精选推荐卡片 (Featured Airports) -->
+  <!-- Section 4: 精选推荐卡片 (Featured Airports - 14 Brands) -->
   <section class="section-block">
     <div class="container">
       <div class="section-head section-head-flex">
         <div>
-          <h2 class="section-title">2026 精选优质机场推荐</h2>
-          <p class="section-desc">基于全国三网持续连通性监控与真实流媒体解锁嗅探，严选 5 款梯子品牌</p>
+          <h2 class="section-title">2026 精选优质机场推荐（共14家核验品牌）</h2>
+          <p class="section-desc">基于全国三网持续连通性监控与真实流媒体解锁嗅探，严选 14 款高可用翻墙梯子品牌</p>
         </div>
-        <a href="${rel}ranking/value/index.html" class="btn btn-outline btn-sm">按性价比排序 &rarr;</a>
+        <a href="${rel}ranking/value/index.html" class="btn btn-outline btn-sm">按性价比单价排序 &rarr;</a>
       </div>
 
       <div class="grid-cards">
@@ -111,9 +110,10 @@ function generateHomepage() {
                 ${a.protocols.join(' · ')}
               </div>
             </div>
-            <span class="badge ${a.testStatus === 'tested' ? 'badge-verified' : 'badge-official'}">
-              ${a.testStatus === 'tested' ? '✓ 实测达标' : '★ 官方在售'}
-            </span>
+            <div style="text-align:right;">
+              <span class="badge badge-verified">✓ 实测达标</span>
+              ${a.coupon ? `<div style="font-size:0.75rem; color:var(--warning); font-weight:700; margin-top:3px;">券: ${a.coupon}</div>` : ''}
+            </div>
           </div>
           <div class="card-price">
             ¥${a.startingPrice} <small>/月起</small>
@@ -127,9 +127,9 @@ function generateHomepage() {
           <div style="font-size:0.85rem; color:var(--text-muted); margin-bottom:12px;">
             <strong>适合人群：</strong>${a.suitableFor[0]}
           </div>
-          <div class="card-footer">
-            <a href="${rel}review/${a.id}/index.html" class="btn btn-outline btn-sm" style="flex:1;">详细评测报告</a>
-            <a href="${rel}compare/index.html" class="btn btn-outline btn-sm">加入对比</a>
+          <div class="card-footer" style="display:flex; gap:8px;">
+            <a href="${rel}review/${a.id}/index.html" class="btn btn-outline btn-sm" style="flex:1;">评测详情</a>
+            <a href="${a.affiliateUrl}" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">官网直达 &rarr;</a>
           </div>
         </article>
         `).join('')}
@@ -143,7 +143,7 @@ function generateHomepage() {
       <div class="section-head section-head-flex">
         <div>
           <h2 class="section-title">机场综合实力排行榜（2026最新）</h2>
-          <p class="section-desc">综合网络延迟、晚高峰抗压性、每GB性价比与客服响应多维度量化评估</p>
+          <p class="section-desc">综合网络延迟、晚高峰抗压性、每GB性价比与专线质量多维度量化评估</p>
         </div>
         <a href="${rel}ranking/overall/index.html" class="btn btn-primary btn-sm">查看完整排行榜 &rarr;</a>
       </div>
@@ -164,48 +164,48 @@ function generateHomepage() {
           <tbody>
             <tr>
               <td><span class="rank-badge rank-1">1</span></td>
-              <td><strong>WgetCloud (恶魔之眼)</strong></td>
-              <td>¥49 /月</td>
-              <td>120GB</td>
-              <td>华为云顶级BGP Bidir专线</td>
-              <td>外贸办公、ChatGPT重度用户、企业高阶需求</td>
-              <td><a href="${rel}review/wgetcloud/index.html" class="btn btn-outline btn-sm">评测详情</a></td>
+              <td><strong>微风网络 Breezenet</strong></td>
+              <td>¥8 /月</td>
+              <td>200GB</td>
+              <td>IEPL/IPLC高速专线</td>
+              <td>学生党、大流量视频追剧、高性价比主力</td>
+              <td><a href="${rel}review/breezenet/index.html" class="btn btn-outline btn-sm">评测详情</a></td>
             </tr>
             <tr>
               <td><span class="rank-badge rank-2">2</span></td>
-              <td><strong>Kuromi (黑猫机场)</strong></td>
-              <td>¥20 /月</td>
-              <td>100GB</td>
-              <td>全IEPL内网专线</td>
-              <td>学生党、轻奢性价比、日常多媒体娱乐</td>
-              <td><a href="${rel}review/kuromi/index.html" class="btn btn-outline btn-sm">评测详情</a></td>
+              <td><strong>隐形人</strong></td>
+              <td>¥24 /月</td>
+              <td>144GB</td>
+              <td>IEPL纯专线架构</td>
+              <td>多设备并发、晚高峰对卡顿零容忍的用户</td>
+              <td><a href="${rel}review/yinxingren/index.html" class="btn btn-outline btn-sm">评测详情</a></td>
             </tr>
             <tr>
               <td><span class="rank-badge rank-3">3</span></td>
-              <td><strong>FlyingBird (飞鸟机场)</strong></td>
-              <td>¥15 /月</td>
-              <td>100GB</td>
-              <td>IEPL优质内网专线</td>
-              <td>超低预算尝鲜、追剧大流量下载备用</td>
-              <td><a href="${rel}review/flyingbird/index.html" class="btn btn-outline btn-sm">评测详情</a></td>
+              <td><strong>灵猫</strong></td>
+              <td>¥25 /月</td>
+              <td>150GB</td>
+              <td>真实IPLC纯专线</td>
+              <td>重度依赖 ChatGPT/Claude 原生住宅IP解锁</td>
+              <td><a href="${rel}review/lingmao/index.html" class="btn btn-outline btn-sm">评测详情</a></td>
             </tr>
             <tr>
               <td><span class="rank-badge rank-n">4</span></td>
-              <td><strong>TAG VPN</strong></td>
-              <td>¥33 /月(折合)</td>
-              <td>250GB/季</td>
-              <td>全球IPLC物理专线 (90+国)</td>
-              <td>小众冷门节点需求、海淘跨服、数字游民</td>
-              <td><a href="${rel}review/tag/index.html" class="btn btn-outline btn-sm">评测详情</a></td>
+              <td><strong>闪跃 FlashLeap</strong></td>
+              <td>¥24 /月</td>
+              <td>150GB</td>
+              <td>IPLC纯专线骨干</td>
+              <td>电竞级低延迟联机、4K流媒体极致体验</td>
+              <td><a href="${rel}review/flashleap/index.html" class="btn btn-outline btn-sm">评测详情</a></td>
             </tr>
             <tr>
               <td><span class="rank-badge rank-n">5</span></td>
-              <td><strong>DuangCloud</strong></td>
-              <td>¥40 /月</td>
-              <td>150GB</td>
-              <td>老牌IEPL高可用专线</td>
-              <td>长期稳定办公、不想频繁换机场的稳健型用户</td>
-              <td><a href="${rel}review/duang/index.html" class="btn btn-outline btn-sm">评测详情</a></td>
+              <td><strong>飞V</strong></td>
+              <td>¥4.9 /月</td>
+              <td>100GB</td>
+              <td>优化线路 (含不限时包)</td>
+              <td>极低预算尝鲜、29元不限时应急备用</td>
+              <td><a href="${rel}review/feiv/index.html" class="btn btn-outline btn-sm">评测详情</a></td>
             </tr>
           </tbody>
         </table>
@@ -225,12 +225,12 @@ function generateHomepage() {
         <a href="${rel}recommend/budget/index.html" class="hub-card">
           <span class="hub-icon">💰</span>
           <div class="hub-name">平价低预算推荐</div>
-          <div class="hub-desc">月付 15-20 元以内的实惠梯子，高单价低至 0.09元/GB，学生党与轻量上网优选。</div>
+          <div class="hub-desc">月付 4.9-8 元以内的实惠梯子，单GB低至 0.04元/GB，学生党与轻量上网优选。</div>
         </a>
         <a href="${rel}recommend/premium/index.html" class="hub-card">
           <span class="hub-icon">⚡</span>
           <div class="hub-name">高端专线梯子</div>
-          <div class="hub-desc">全 IPLC/BGP 物理内网直连专线，极低延迟零丢包，企业跨国协同与金融级稳定首选。</div>
+          <div class="hub-desc">全 IPLC/IEPL 物理内网直连专线，极低延迟零丢包，企业跨国协同与金融级稳定首选。</div>
         </a>
         <a href="${rel}recommend/beginner/index.html" class="hub-card">
           <span class="hub-icon">🔰</span>
@@ -261,7 +261,7 @@ function generateHomepage() {
     <div class="container" style="text-align:center; padding:20px 0;">
       <h2 style="font-size:2rem; font-weight:800; margin-bottom:12px; color:#fff;">还在犹豫挑选哪家机场？使用横向对比工具</h2>
       <p style="max-width:700px; margin:0 auto 24px; color:#cbd5e1; font-size:1.05rem;">
-        我们提供支持 2-4 家机场并排对照的实时参数矩阵：同时对比起始价格、实际每GB单价、支持协议、AI大模型解锁能力与缺点短板。
+        我们提供支持在 14 家品牌中自由选择 2-4 家并排对照的实时参数矩阵：同时对比起始价格、实际每GB单价、支持协议、AI大模型解锁能力与缺点短板。
       </p>
       <a href="${rel}compare/index.html" class="btn btn-primary" style="font-size:1.05rem; padding:12px 32px;">立即打开横向对比工具 &rarr;</a>
     </div>
@@ -356,7 +356,7 @@ function generateHomepage() {
             <span class="faq-toggle-icon">−</span>
           </button>
           <div class="faq-answer">
-            传统的商业 VPN（如 ExpressVPN、NordVPN）通常采用通用 OpenVPN/WireGuard 协议直连海外服务器，协议特征明显，在敏感时期极易被 GFW 精准识别并拦截封锁 IP；而“机场”通常采用专门为抗封锁设计的加密代理协议（如 Shadowsocks、Trojan、V2Ray/Vless），并配合国内 BGP 入口与 IPLC/IEPL 跨境物理内网专线，数据在过境时不经过公网防火墙检查，因而具备超低的延迟和极高的稳定性。
+            传统的商业 VPN（如 ExpressVPN、NordVPN）通常采用通用 OpenVPN/WireGuard 协议直连海外服务器，协议特征明显，在敏感时期极易被 GFW 精准识别并拦截封锁 IP；而“机场”通常采用专门为抗封锁设计的加密代理协议（如 Shadowsocks、Trojan、V2Ray/VLESS），并配合国内 BGP 入口与 IPLC/IEPL 跨境物理内网专线，数据在过境时不经过公网防火墙检查，因而具备超低的延迟和极高的稳定性。
           </div>
         </div>
 
@@ -376,7 +376,7 @@ function generateHomepage() {
             <span class="faq-toggle-icon">+</span>
           </button>
           <div class="faq-answer" style="display:none;">
-            网络代理行业受外部政策波动、专线通报与机房变更影响较大。部分低价机场通过“极低年付促销”吸收资金后存在跑路或服务降级风险。我们强烈建议所有新用户在初次使用时选择<strong>月付或季付</strong>，在连续稳定使用 3-6 个月且对其晚高峰表现满意后，再考虑长周期套餐。
+            网络代理行业受外部政策波动、专线通报与机房变更影响较大。部分低价机场通过“极低年付促销”吸收资金后存在跑路或服务降级风险。我们强烈建议所有新用户在初次使用时选择<strong>月付或季付</strong>（如微风网络8元月付、飞V 4.9元月付），在连续稳定使用 3-6 个月且对其晚高峰表现满意后，再考虑长周期套餐。
           </div>
         </div>
 
@@ -386,7 +386,7 @@ function generateHomepage() {
             <span class="faq-toggle-icon">+</span>
           </button>
           <div class="faq-answer" style="display:none;">
-            OpenAI 对访问 IP 的风控级别极高。当一个机房 IDC 节点的 IP 被成百上千人共用时，OpenAI 会自动触发人机验证、封禁账户或切换至低配模型（即所谓“降智”）。解决办法是选择具备“原生住宅落地 IP”或对 AI 大模型有专门解锁维护的机场（如 WgetCloud、Kuromi 等），并避免使用万人骑的免费或极低端廉价节点。
+            OpenAI 对访问 IP 的风控级别极高。当一个机房 IDC 节点的 IP 被成百上千人共用时，OpenAI 会自动触发人机验证、封禁账户或切换至低配模型（即所谓“降智”）。解决办法是选择具备“原生住宅落地 IP”或对 AI 大模型有专门解锁维护的机场（如灵猫、微风网络、隐形人等），并避免使用万人骑的免费或极低端廉价节点。
           </div>
         </div>
       </div>

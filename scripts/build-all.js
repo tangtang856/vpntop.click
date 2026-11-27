@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { airports } = require('../data/airports.js');
 
 const { generateHomepage } = require('./generate-home.js');
 const { generateRankings } = require('./generate-rankings.js');
@@ -14,7 +15,7 @@ const { generateTrustPages } = require('./generate-trust.js');
 const DOMAIN = 'https://vpntop.click';
 const INDEXNOW_KEY = 'f23cb41920784260a48b5e98586909cb';
 
-console.log('=== [VPNTOP.CLICK] BUILD PIPELINE STARTING ===');
+console.log('=== [VPNTOP.CLICK] BUILD PIPELINE STARTING (14 BRANDS) ===');
 
 // 1. Generate All Pages
 generateHomepage();
@@ -41,26 +42,27 @@ const sitemapUrls = [
   '/recommend/stable/',
   '/recommend/ai/',
   '/recommend/streaming/',
-  '/review/wgetcloud/',
-  '/review/kuromi/',
-  '/review/tag/',
-  '/review/flyingbird/',
-  '/review/duang/',
+  // 14 Brand Reviews
+  ...airports.map(a => `/review/${a.id}/`),
+  // Guides
   '/guides/windows/',
   '/guides/android/',
   '/guides/ios/',
   '/guides/macos/',
   '/guides/clash-meta/',
+  // Blog
   '/blog/how-to-choose-airport/',
   '/blog/iepl-vs-iplc/',
   '/blog/protocol-comparison/',
   '/blog/airport-speedtest-myths/',
   '/blog/airport-security-privacy/',
+  // Glossary
   '/glossary/iplc/',
   '/glossary/iepl/',
   '/glossary/clash/',
   '/glossary/v2ray/',
   '/glossary/shadowsocks/',
+  // Trust Pages
   '/about/',
   '/contact/',
   '/editorial-policy/',
@@ -81,7 +83,7 @@ ${sitemapUrls.map(urlPath => `  <url>
 </urlset>`;
 
 fs.writeFileSync(path.join(__dirname, '..', 'sitemap.xml'), sitemapXml, 'utf-8');
-console.log('[GENERATED] sitemap.xml');
+console.log(`[GENERATED] sitemap.xml (${sitemapUrls.length} URLs)`);
 
 // 3. Generate robots.txt
 const robotsTxt = `User-agent: *

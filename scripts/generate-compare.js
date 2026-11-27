@@ -15,7 +15,7 @@ function generateCompare() {
     <div class="article-header">
       <h1 class="article-title">机场横向对比工具：多维度参数对齐选购</h1>
       <div class="article-meta">
-        <span>🔄 交互特性：支持选择 2-4 家主流品牌并排对比</span>
+        <span>🔄 交互特性：支持在 14 家核验品牌中自由选择 2-4 家并排对比</span>
         <span>📊 数据依据：统一数据源，严格核查</span>
         <span>⚡ 模式：纯原生 JS 运行，支持横向拖拽与差异高亮</span>
       </div>
@@ -32,7 +32,7 @@ function generateCompare() {
 
     <!-- Dynamic Selector Toolbar -->
     <div style="background-color:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:20px; margin:24px 0;">
-      <h3 style="font-size:1.1rem; margin-bottom:12px; color:var(--secondary);">配置对比席位</h3>
+      <h3 style="font-size:1.1rem; margin-bottom:12px; color:var(--secondary);">配置对比席位（14家候选品牌）</h3>
       <div id="compare-selectors" class="compare-select-row">
         <!-- Injected via compare.js -->
         <noscript>
@@ -66,15 +66,15 @@ function generateCompare() {
             </tr>
             <tr>
               <td style="font-weight:600; background-color:var(--bg-alt);">骨干线路类型</td>
-              ${airports.map(a => `<td style="text-align:center;">${a.description.includes('BGP') ? 'BGP Bidir专线' : (a.description.includes('IPLC') ? 'IPLC物理专线' : 'IEPL内网专线')}</td>`).join('')}
+              ${airports.map(a => `<td style="text-align:center;">${a.description.includes('IPLC') ? 'IPLC纯专线' : (a.description.includes('IEPL') ? 'IEPL专线' : '优质中转/专线')}</td>`).join('')}
             </tr>
             <tr>
               <td style="font-weight:600; background-color:var(--bg-alt);">支持协议</td>
               ${airports.map(a => `<td style="text-align:center;">${a.protocols.join(', ')}</td>`).join('')}
             </tr>
             <tr>
-              <td style="font-weight:600; background-color:var(--bg-alt);">地区覆盖</td>
-              ${airports.map(a => `<td style="text-align:center;">${a.regions.slice(0, 4).join('/')}</td>`).join('')}
+              <td style="font-weight:600; background-color:var(--bg-alt);">专属优惠码</td>
+              ${airports.map(a => `<td style="text-align:center;">${a.coupon ? `<span class="badge badge-warning">券: ${a.coupon}</span>` : '无券直购'}</td>`).join('')}
             </tr>
             <tr>
               <td style="font-weight:600; background-color:var(--bg-alt);">同时在线设备</td>
@@ -82,19 +82,26 @@ function generateCompare() {
             </tr>
             <tr>
               <td style="font-weight:600; background-color:var(--bg-alt);">AI 大模型解锁</td>
-              ${airports.map(a => `<td style="text-align:center; color:var(--success); font-weight:600;">${a.aiSupport.slice(0, 3).join('/')}</td>`).join('')}
+              ${airports.map(a => `<td style="text-align:center; color:var(--success); font-weight:600;">${a.aiSupport.slice(0, 2).join('/')}</td>`).join('')}
             </tr>
             <tr>
               <td style="font-weight:600; background-color:var(--bg-alt);">4K 流媒体</td>
-              ${airports.map(a => `<td style="text-align:center;">${a.streamingSupport.slice(0, 3).join('/')}</td>`).join('')}
+              ${airports.map(a => `<td style="text-align:center;">${a.streamingSupport.slice(0, 2).join('/')}</td>`).join('')}
             </tr>
             <tr>
               <td style="font-weight:600; background-color:var(--bg-alt);">需注意的短板</td>
-              ${airports.map(a => `<td style="text-align:center; color:var(--danger); font-size:0.88rem;">${a.disadvantages[0]}</td>`).join('')}
+              ${airports.map(a => `<td style="text-align:center; color:var(--danger); font-size:0.85rem;">${a.disadvantages[0]}</td>`).join('')}
             </tr>
             <tr>
-              <td style="font-weight:600; background-color:var(--bg-alt);">独立评测报告</td>
-              ${airports.map(a => `<td style="text-align:center;"><a href="${rel}review/${a.id}/index.html" class="btn btn-outline btn-sm">查看评测</a></td>`).join('')}
+              <td style="font-weight:600; background-color:var(--bg-alt);">评测与官网直达</td>
+              ${airports.map(a => `
+                <td style="text-align:center;">
+                  <div style="display:flex; flex-direction:column; gap:6px;">
+                    <a href="${rel}review/${a.id}/index.html" class="btn btn-outline btn-sm">评测报告</a>
+                    <a href="${a.affiliateUrl}" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">官网直达</a>
+                  </div>
+                </td>
+              `).join('')}
             </tr>
           </tbody>
         </table>
@@ -104,7 +111,7 @@ function generateCompare() {
     <div class="article-content" style="margin-top:40px;">
       <h2>横向比较核心维度说明</h2>
       <p>
-        <strong>1. 线路架构优劣：</strong>BGP Bidir 多线接入保证三网入口同等低延迟；IPLC 专线物理点对点直连不经过公网；IEPL 专线成本适中且稳定性远超公网直连。
+        <strong>1. 线路架构优劣：</strong>IPLC 专线物理点对点直连不经过公网防火墙；IEPL 专线成本适中且晚高峰稳定性远超公网直连；优质中转则兼顾弹性与带宽储备。
       </p>
       <p>
         <strong>2. 单价陷阱识别：</strong>很多机场故意用 0.1x 倍率节点虚晃一枪，但该节点经常处于断连状态。实际使用中，优质节点的倍率通常为 1.0x。
@@ -116,7 +123,7 @@ function generateCompare() {
 
   const html = renderPage({
     title: "机场横向对比工具 - 实时对比价格/流量/专线/解锁能力 | VPN Top",
-    description: "专业机场横向对比工具。支持2-4家机场并排参数对齐，实时比较月费门槛、实际每GB单价、骨干专线资质、ChatGPT与4K流媒体原生解锁能力，帮您快速做出明智选择。",
+    description: "专业机场横向对比工具。支持在14家品牌中自由并排参数对齐，实时比较月费门槛、实际每GB单价、骨干专线资质、ChatGPT与4K流媒体原生解锁能力，帮您快速做出明智选择。",
     canonicalPath: "/compare/",
     depth: 1,
     activeNav: "compare",

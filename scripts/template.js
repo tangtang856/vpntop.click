@@ -43,7 +43,7 @@ function renderFooter(depth) {
         <div class="footer-col">
           <h5>关于 VPN Top (vpntop.click)</h5>
           <p style="margin-bottom:12px; line-height:1.6; color:#94a3b8;">
-            专注真实客观的中文机场推荐、翻墙梯子测评、IPLC/IEPL高速专线节点监测与网络加速科普。杜绝虚假跑分，秉持数据透明与中立原则。
+            专注真实客观的中文机场推荐、翻墙梯子测评、IPLC/IEPL高速专线节点监测与网络加速科普。汇聚 14 款核验品牌，杜绝虚假跑分，秉持数据透明与中立原则。
           </p>
           <p style="color:#64748b; font-size:0.82rem;">主攻搜索词：机场推荐 · 性价比机场 · 梯子推荐 · 机场节点 · vpn机场推荐</p>
         </div>
@@ -58,14 +58,15 @@ function renderFooter(depth) {
           </ul>
         </div>
         <div class="footer-col">
-          <h5>排行榜与评测</h5>
+          <h5>排行榜与精选评测</h5>
           <ul>
             <li><a href="${rel}ranking/overall/index.html">2026综合实力总榜</a></li>
             <li><a href="${rel}ranking/value/index.html">高性价比机场排行</a></li>
-            <li><a href="${rel}ranking/budget/index.html">平价低预算排行榜</a></li>
             <li><a href="${rel}compare/index.html">机场横向对比工具</a></li>
-            <li><a href="${rel}review/wgetcloud/index.html">WgetCloud 深度评测</a></li>
-            <li><a href="${rel}review/kuromi/index.html">Kuromi 深度评测</a></li>
+            <li><a href="${rel}review/breezenet/index.html">微风网络 Breezenet 评测</a></li>
+            <li><a href="${rel}review/yinxingren/index.html">隐形人 深度评测</a></li>
+            <li><a href="${rel}review/lingmao/index.html">灵猫 深度评测</a></li>
+            <li><a href="${rel}review/feiv/index.html">飞V 深度评测</a></li>
           </ul>
         </div>
         <div class="footer-col">
