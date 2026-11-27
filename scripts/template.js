@@ -22,7 +22,7 @@ function renderHeader(depth, activeNav) {
       </a>
       <nav class="main-nav" aria-label="全站导航">
         <a href="${rel}index.html" class="${activeNav === 'home' ? 'active' : ''}">首页</a>
-        <a href="${rel}recommend/stable/index.html" class="${activeNav === 'recommend' ? 'active' : ''}">机场推荐</a>
+        <a href="${rel}recommend/index.html" class="${activeNav === 'recommend' ? 'active' : ''}">机场推荐</a>
         <a href="${rel}ranking/overall/index.html" class="${activeNav === 'ranking' ? 'active' : ''}">机场排行</a>
         <a href="${rel}compare/index.html" class="${activeNav === 'compare' ? 'active' : ''}">机场对比</a>
         <a href="${rel}guides/index.html" class="${activeNav === 'guides' ? 'active' : ''}">使用教程</a>
@@ -55,13 +55,15 @@ function renderFooter(depth) {
           <p style="color:#64748b; font-size:0.82rem;">主攻搜索词：机场推荐 · 性价比机场 · 梯子推荐 · 机场节点 · vpn机场推荐</p>
         </div>
         <div class="footer-col">
-          <h5>专题推荐</h5>
+          <h5>推荐专题中心</h5>
           <ul>
-            <li><a href="${rel}recommend/budget/index.html">低预算便宜机场</a></li>
-            <li><a href="${rel}recommend/premium/index.html">高端IPLC专线机场</a></li>
-            <li><a href="${rel}recommend/stable/index.html">稳定晚高峰机场</a></li>
-            <li><a href="${rel}recommend/ai/index.html">AI / ChatGPT 专用节点</a></li>
-            <li><a href="${rel}recommend/streaming/index.html">4K 流媒体解锁机场</a></li>
+            <li><a href="${rel}recommend/index.html" style="font-weight:700; color:var(--primary);">🎯 场景化推荐总览</a></li>
+            <li><a href="${rel}recommend/stable/index.html">⚡ 晚高峰抗断流专线</a></li>
+            <li><a href="${rel}recommend/budget/index.html">💰 平价便宜备用机场</a></li>
+            <li><a href="${rel}recommend/premium/index.html">🚀 企业级高端IPLC专线</a></li>
+            <li><a href="${rel}recommend/ai/index.html">🤖 AI / ChatGPT 专用节点</a></li>
+            <li><a href="${rel}recommend/streaming/index.html">🎬 4K 超高清流媒体解锁</a></li>
+            <li><a href="${rel}recommend/beginner/index.html">🔰 新手零基础入门指南</a></li>
           </ul>
         </div>
         <div class="footer-col">

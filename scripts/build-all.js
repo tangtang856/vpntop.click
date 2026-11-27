@@ -37,6 +37,7 @@ const sitemapUrls = [
   '/ranking/budget/',
   '/ranking/stable/',
   '/compare/',
+  '/recommend/',
   '/recommend/budget/',
   '/recommend/premium/',
   '/recommend/beginner/',

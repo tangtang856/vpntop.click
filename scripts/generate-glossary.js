@@ -86,7 +86,7 @@ function generateGlossary() {
 
         <div class="notice-box">
           <strong>想直接挑选搭载专线的成熟梯子？</strong>
-          建议参考我们的 <a href="${rel}recommend/stable/index.html">高质量稳定专线节点推荐</a> 或进入 <a href="${rel}compare/index.html">机场横向对比工具</a> 对齐各家配置。
+          建议参考我们的 <a href="${rel}recommend/stable/index.html">晚高峰抗断流专线节点精选</a>、查阅 <a href="${rel}recommend/index.html">场景化推荐中心</a> 或进入 <a href="${rel}compare/index.html">机场横向对比工具</a> 对齐各家配置。
         </div>
 
         <div class="related-posts">

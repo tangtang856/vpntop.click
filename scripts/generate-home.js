@@ -211,9 +211,9 @@ function generateHomepage() {
           <div class="hub-desc">国际企业物理内网骨干，不过公网审查，敏感时期稳如磐石，极低丢包。</div>
         </a>
         <a href="${rel}recommend/stable/index.html" class="hub-card">
-          <span class="hub-icon">🛡️</span>
-          <div class="hub-name">晚高峰抗封锁保障</div>
-          <div class="hub-desc">BGP多线中继入口，晚8点至11点网络抖动小于5%，告别转圈圈困扰。</div>
+          <span class="hub-icon">⚡</span>
+          <div class="hub-name">晚高峰抗断流专线</div>
+          <div class="hub-desc">BGP多线中继入口与IPLC物理光缆，晚8点至11点网络抖动小于5%，告别转圈与掉线。</div>
         </a>
         <a href="${rel}recommend/ai/index.html" class="hub-card">
           <span class="hub-icon">🤖</span>
@@ -229,6 +229,12 @@ function generateHomepage() {
           <span class="hub-icon">🔰</span>
           <div class="hub-name">新手入门零基础指南</div>
           <div class="hub-desc">一键导入客户端，零代码基础上手，配合全套保姆级图文教程。</div>
+        </a>
+      </div>
+
+      <div style="text-align:center; margin-top:32px;">
+        <a href="${rel}recommend/index.html" class="btn btn-primary" style="padding:12px 28px; font-size:1rem; font-weight:700;">
+          🎯 进入场景化机场推荐与选型中心 &rarr;
         </a>
       </div>
     </div>

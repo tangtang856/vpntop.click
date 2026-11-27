@@ -15,15 +15,15 @@ const rows = [
 rows.push(['机场推荐', '商业调查/交易', `${DOMAIN}/`, '首页', 'P0', '2026最新机场推荐与梯子评测指南 - 精选高性价比VPN机场节点 | VPN Top', '2026 高性价比机场推荐与 VPN 梯子评测导航']);
 rows.push(['梯子推荐', '商业调查', `${DOMAIN}/`, '首页', 'P0', '2026最新机场推荐与梯子评测指南 - 精选高性价比VPN机场节点 | VPN Top', '2026 高性价比机场推荐与 VPN 梯子评测导航']);
 rows.push(['性价比机场', '商业调查', `${DOMAIN}/ranking/value/`, '排行榜', 'P0', '2026 高性价比机场排行榜 - 每GB单价测算与平价梯子推荐 | VPN Top', '2026 高性价比机场排行榜：低单价与大流量深度对比']);
-rows.push(['机场节点', '信息/寻找节点', `${DOMAIN}/recommend/stable/`, '推荐专题', 'P0', '高质量稳定机场节点推荐 - IPLC/IEPL专线高速节点全解析 | VPN Top', '稳定高速机场节点推荐：原生IP与专线节点选购指南']);
-rows.push(['vpn', '信息/导航', `${DOMAIN}/recommend/beginner/`, '推荐专题', 'P1', '新手翻墙梯子与VPN入门推荐 - 零基础客户端配置与避坑指南 | VPN Top', '新手入门梯子推荐：零基础挑选指南与客户端设置']);
+rows.push(['机场节点', '信息/寻找节点', `${DOMAIN}/recommend/stable/`, '推荐专题', 'P0', '晚高峰抗断流梯子推荐 - 稳定高速IPLC/IEPL物理专线节点实测 | VPN Top', '2026 晚高峰抗断流专线节点精选：IPLC物理光缆与高可用梯子选型指南']);
+rows.push(['vpn', '信息/导航', `${DOMAIN}/recommend/beginner/`, '推荐专题', 'P1', '新手翻墙梯子入门推荐 - 零基础客户端配置与避坑指南 | VPN Top', '2026 新手翻墙零基础避坑选型指南：一键配置客户端与高可用入门梯子选型']);
 rows.push(['vpn机场', '商业调查', `${DOMAIN}/ranking/overall/`, '排行榜', 'P0', '2026 优质VPN机场综合实力排行榜 - 稳定高速翻墙梯子评选 | VPN Top', '2026 优质VPN机场综合实力排行榜']);
-rows.push(['vpn节点', '信息/寻找节点', `${DOMAIN}/recommend/ai/`, '推荐专题', 'P1', 'ChatGPT与Claude专用AI原生机场节点推荐 - 解锁不降智梯子盘点 | VPN Top', 'AI 与 ChatGPT 原生节点推荐：高纯净度IP与不降智梯子']);
+rows.push(['vpn节点', '信息/寻找节点', `${DOMAIN}/recommend/ai/`, '推荐专题', 'P1', 'ChatGPT与Claude专用AI原生机场节点推荐 - 解锁不降智梯子盘点 | VPN Top', '2026 ChatGPT & Claude 专用原生节点精选：高纯净度住宅IP与防封防降智梯子']);
 rows.push(['vpn推荐', '商业调查', `${DOMAIN}/ranking/overall/`, '排行榜', 'P0', '2026 优质VPN机场综合实力排行榜 - 稳定高速翻墙梯子评选 | VPN Top', '2026 优质VPN机场综合实力排行榜']);
 
-rows.push(['便宜机场推荐', '商业调查/交易', `${DOMAIN}/recommend/budget/`, '推荐专题', 'P1', '便宜低预算机场梯子推荐 - 月付几元学生备用高性价比节点 | VPN Top', '低预算平价机场推荐：平民月付套餐与备用梯子盘点']);
-rows.push(['高端专线机场', '商业调查', `${DOMAIN}/recommend/premium/`, '推荐专题', 'P1', '高端专线机场推荐 - 全球IPLC内网专线与企业级稳定翻墙梯子 | VPN Top', '高端专线机场推荐：追求极致低延迟与零丢包的企业级首选']);
-rows.push(['流媒体解锁机场', '信息/娱乐', `${DOMAIN}/recommend/streaming/`, '推荐专题', 'P1', 'Netflix与Disney+4K流媒体解锁机场推荐 - 原生节点梯子大盘点 | VPN Top', '4K流媒体解锁机场推荐：Netflix/Disney+/YouTube 原生家宽梯子']);
+rows.push(['便宜机场推荐', '商业调查/交易', `${DOMAIN}/recommend/budget/`, '推荐专题', 'P1', '便宜低预算平价机场梯子推荐 - 月付几元备用高性价比节点 | VPN Top', '2026 平价穷鬼机场节点精选：月付几元便宜高性价比梯子与备用方案盘点']);
+rows.push(['高端专线机场', '商业调查', `${DOMAIN}/recommend/premium/`, '推荐专题', 'P1', '企业级高端专线机场推荐 - 全球纯IPLC内网与超低延迟外贸梯子 | VPN Top', '2026 企业级高端跨境专线精选：全球纯IPLC内网与超低延迟外贸梯子指南']);
+rows.push(['流媒体解锁机场', '信息/娱乐', `${DOMAIN}/recommend/streaming/`, '推荐专题', 'P1', 'Netflix与Disney+4K流媒体解锁机场推荐 - 原生节点梯子大盘点 | VPN Top', '2026 4K/8K 超高清流媒体解锁精选：Netflix/Disney+/YouTube 原生家宽梯子大盘点']);
 rows.push(['低预算机场排行榜', '商业调查', `${DOMAIN}/ranking/budget/`, '排行榜', 'P1', '2026 低预算便宜机场排行榜 - 百兆/千兆低价节点综合排名 | VPN Top', '2026 低预算机场排行榜：月付5-20元平价梯子横向实测']);
 rows.push(['稳定机场排行榜', '商业调查', `${DOMAIN}/ranking/stable/`, '排行榜', 'P1', '2026 晚高峰稳定机场排行榜 - 晚8-11点不卡顿梯子综合实测 | VPN Top', '2026 稳定性优先机场排行榜：敏感期抗封锁与晚高峰保障']);
 rows.push(['机场对比工具', '工具/决策', `${DOMAIN}/compare/`, '功能工具', 'P0', '机场横向对比工具 - 实时对比价格/流量/专线/解锁能力 | VPN Top', '机场横向对比工具：多维度参数对齐选购']);
