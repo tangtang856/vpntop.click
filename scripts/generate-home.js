@@ -393,7 +393,7 @@ function generateHomepage() {
     canonicalPath: "/",
     depth,
     activeNav: "home",
-    breadcrumbs: [],
+    breadcrumbs: null,
     schemaJson,
     content
   });
