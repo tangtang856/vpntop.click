@@ -149,10 +149,12 @@ function generateHomepage() {
               if (a.aiSupport && a.aiSupport.length > 0) filterTags.push('ai');
               if (a.streamingSupport && a.streamingSupport.length > 0) filterTags.push('streaming');
 
+              const rankClass = idx === 0 ? 'rank-1' : (idx === 1 ? 'rank-2' : (idx === 2 ? 'rank-3' : 'rank-n rank-' + (idx + 1)));
+
               return `
             <tr data-tags="${filterTags.join(' ')}">
               <td style="text-align:center;">
-                <span class="rank-badge rank-${idx + 1}">${idx + 1}</span>
+                <span class="rank-badge ${rankClass}">${idx + 1}</span>
               </td>
               <td>
                 <div class="airport-brand-title">${a.name}</div>
