@@ -30,7 +30,11 @@ rows.push(['机场对比工具', '工具/决策', `${DOMAIN}/compare/`, '功能�
 
 // 14 Brand Reviews
 airports.forEach(a => {
-  rows.push([`${a.name}评测`, '商业调查/评测', `${DOMAIN}/review/${a.id}/`, '评测详情', 'P1', `${a.name} 怎么样？2026 深度评测：专线质量与稳定性详测 | VPN Top`, `${a.name} 深度评测（2026最新）：线路质量、套餐价格与真实使用体验`]);
+  const shortName = a.name.split(' ')[0].split('（')[0].split('(')[0].trim();
+  const trafficStr = (a.plans && a.plans[0] && a.plans[0].traffic) ? `${a.plans[0].traffic}GB` : '大容量';
+  const pageTitle = `${shortName}如何？${shortName}机场2026深度评测：套餐价格(¥${a.startingPrice}起)、${trafficStr}流量、${a.lineType}节点与晚高峰测速信息 | VPN Top`;
+  const h1Title = `${shortName}如何？${a.name} 2026 深度评测：套餐价格、${trafficStr}流量、${a.lineType}节点与晚高峰测速信息全解析`;
+  rows.push([`${shortName}评测`, '商业调查/评测', `${DOMAIN}/review/${a.id}/`, '评测详情', 'P1', pageTitle, h1Title]);
 });
 
 // Guides Hub & 30 Guides

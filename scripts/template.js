@@ -124,6 +124,7 @@ function renderBreadcrumbs(crumbs, depth) {
 function renderPage({
   title,
   description,
+  keywords,
   canonicalPath,
   depth,
   activeNav,
@@ -141,7 +142,7 @@ function renderPage({
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${title}</title>
   <meta name="description" content="${description}">
-  <link rel="canonical" href="${canonicalUrl}">
+  ${keywords ? `<meta name="keywords" content="${keywords}">\n  ` : ''}<link rel="canonical" href="${canonicalUrl}">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <!-- Open Graph / Social Media -->
   <meta property="og:type" content="website">

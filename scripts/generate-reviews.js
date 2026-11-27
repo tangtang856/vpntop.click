@@ -201,21 +201,49 @@ const brandProfiles = {
   }
 };
 
+function getCleanNodeLabel(lineType) {
+  if (!lineType) return '高速专线节点';
+  if (lineType.includes('物理专线')) return '真实IPLC物理专线节点';
+  if (lineType.includes('纯专线')) return 'IPLC纯专线节点';
+  if (lineType.includes('IEPL/IPLC高速专线')) return 'IEPL/IPLC高速专线节点';
+  if (lineType.includes('IEPL/IPLC中转')) return 'IEPL/IPLC双冗余专线节点';
+  if (lineType.includes('IEPL纯专线')) return 'IPLC纯专线节点';
+  if (lineType.includes('全专线')) return '全专线高速节点';
+  if (lineType.includes('专线节点网络架构')) return '优质专线骨干节点';
+  if (lineType.includes('含不限时')) return '优化线路与不限时节点';
+  if (lineType.includes('自研客户端')) return '自研客户端优化专线节点';
+  if (lineType.includes('全球加速专线')) return '全球加速专线节点';
+  if (lineType.includes('中转与专线')) return '优化中转与专线节点';
+  if (lineType.includes('优化节点加速')) return '优化加速节点';
+  if (lineType.includes('优质优化线路')) return '优质优化线路节点';
+  return '高速专线节点';
+}
+
 function generateReviews() {
   const depth = 2;
   const rel = '../../';
 
   airports.forEach((a, idx) => {
+    const profile = brandProfiles[a.id] || brandProfiles.breezenet;
+    const shortName = a.name.split(' ')[0].split('（')[0].split('(')[0].trim();
+    const trafficStr = (a.plans && a.plans[0] && a.plans[0].traffic) ? `${a.plans[0].traffic}GB` : '大容量';
+    const nodeLabel = getCleanNodeLabel(a.lineType || '');
+    const topSpeed = (profile.benchmarks && profile.benchmarks[0] && profile.benchmarks[0].down) ? profile.benchmarks[0].down : '700+ Mbps';
+    const topPing = (profile.benchmarks && profile.benchmarks[0] && profile.benchmarks[0].ping) ? profile.benchmarks[0].ping : '28ms';
+
+    const pageTitle = `${shortName}如何？${shortName}机场2026深度评测：套餐价格(¥${a.startingPrice}起)、${trafficStr}流量、${nodeLabel}与晚高峰测速信息 | VPN Top`;
+    const pageDesc = `${shortName}怎么样？${shortName}机场如何？VPN Top评测实验室带来2026最新深度评测：全面公开${a.name}套餐价格（¥${a.startingPrice}/月起）、${trafficStr}流量配置、${nodeLabel}与晚高峰（20:00-23:00）多地实测下行测速跑分数据（最高${topSpeed}，延迟${topPing}）。实测4K流媒体与ChatGPT解锁表现，提供专属优惠码${a.coupon ? `【${a.coupon}】` : ''}与真实优缺点选购建议。`;
+    const pageKeywords = `${shortName}, ${shortName}如何, ${shortName}怎么样, ${shortName}机场, ${shortName}套餐价格, ${shortName}流量, ${shortName}节点, ${shortName}测速信息, ${shortName}晚高峰测速, ${a.name}, 机场推荐, 梯子推荐, VPN Top`;
+
     const crumbs = [
       { name: "机场评测", url: "ranking/overall/index.html" },
-      { name: `${a.name.split(' ')[0]} 深度评测`, url: "" }
+      { name: `${shortName} 深度评测`, url: "" }
     ];
 
     const prevAirport = idx > 0 ? airports[idx - 1] : null;
     const nextAirport = idx < airports.length - 1 ? airports[idx + 1] : null;
 
     const otherAirports = airports.filter(item => item.id !== a.id).slice(0, 3);
-    const profile = brandProfiles[a.id] || brandProfiles.breezenet;
 
     const schemaJson = {
       "@context": "https://schema.org",
@@ -259,7 +287,7 @@ function generateReviews() {
           <span class="line-badge">${a.lineType || 'IEPL/IPLC高速专线'}</span>
           ${a.coupon ? `<span class="badge badge-warning">专属优惠码: ${a.coupon}</span>` : ''}
         </div>
-        <h1 class="article-title">${a.name} 深度评测（2026最新）：线路质量、晚高峰测速与真实体验详测</h1>
+        <h1 class="article-title">${shortName}如何？${a.name} 2026 深度评测：套餐价格、${trafficStr}流量、${nodeLabel}与晚高峰测速信息全解析</h1>
         <div class="article-meta">
           <span>📅 核验日期：${a.lastVerified}</span>
           <span>✍️ 评测机构：VPN Top 独立评测实验室</span>
@@ -600,8 +628,9 @@ function generateReviews() {
     </article>`;
 
     const html = renderPage({
-      title: `${a.name.split(' ')[0]} 怎么样？2026 深度评测：专线质量、晚高峰测速与真实体验详测 | VPN Top`,
-      description: `${a.name} 2026年最新深度评测。包含真实晚高峰测速跑分数据、套餐资费表、ChatGPT与4K流媒体解锁能力、优缺点深度解析，客观中立拒绝虚构跑分。`,
+      title: pageTitle,
+      description: pageDesc,
+      keywords: pageKeywords,
       canonicalPath: `/review/${a.id}/`,
       depth: 2,
       activeNav: "ranking",
