@@ -1,12 +1,10 @@
-# VPN Top (vpntop.click) - 中文机场评测与 Bing SEO 专业建站系统
+# VPN Top (vpntop.click) - 中文机场评测与 Bing SEO 专业建站系统 (VitePress 2.0版)
 
-> 专注于真实晚高峰表现的中文机场推荐、翻墙梯子测评与 IPLC/IEPL 高速节点导航门户。已接入 14 家高可用核验品牌、30 篇保姆级全平台配置教程与 100 篇原创技术长文。
+> 专注于真实晚高峰表现的中文机场推荐、翻墙梯子测评与 IPLC/IEPL 高速节点导航门户。基于 **VitePress (Vue 3 + Vite)** 构建，彻底消除冗余模板代码，实现组件化极速静态生成与优雅阅读体验。
 
-[![SEO Audit](https://img.shields.io/badge/SEO_Audit-PASS-success.svg)](docs/final-audit.md)
-[![Link Audit](https://img.shields.io/badge/Link_Audit-PASS-success.svg)](docs/final-audit.md)
-[![Relative Paths](https://img.shields.io/badge/Path_Standard-100%25_Relative-blue.svg)](docs/final-audit.md)
-[![Bing IndexNow](https://img.shields.io/badge/IndexNow-HTTP_202-brightgreen.svg)](scripts/indexnow.js)
-[![Total Pages](https://img.shields.io/badge/HTML_Pages-169-orange.svg)](docs/final-audit.md)
+[![Build Status](https://img.shields.io/badge/VitePress-v1.6-brightgreen.svg)](https://vitepress.dev/)
+[![SEO Sitemap](https://img.shields.io/badge/Sitemap-170_URLs-blue.svg)](https://vpntop.click/sitemap.xml)
+[![Bing IndexNow](https://img.shields.io/badge/IndexNow-HTTP_202-brightgreen.svg)](scripts/indexnow.cjs)
 
 ---
 
@@ -34,50 +32,50 @@
 
 ---
 
-## 二、网站内容与架构体系（共 169 个纯静态页面）
+## 二、VitePress 架构升级亮点（彻底解决模板重复）
 
-1. **核心枢纽**：
-   - 首页 (`/index.html`)：13个结构化分区，Bing 核心词自然覆盖，高转化卡片与 1-14 精确排名表格。
-   - 横向对比工具 (`/compare/index.html`)：支持 14 家品牌多维度自由并排比对。
-   - 4大维度排行榜 (`/ranking/overall/`, `/ranking/value/`, `/ranking/budget/`, `/ranking/stable/`)。
-   - 6大使用场景推荐 (`/recommend/budget/`, `/premium/`, `/beginner/`, `/stable/`, `/ai/`, `/streaming/`)。
-2. **14 家品牌独立评测** (`/review/[slug]/`)：
-   - 包含一句话结论、真实套餐价格表、节点线路数据、优缺点剖析、购买注意事项与 FAQ。
-3. **30 篇保姆级全平台配置教程** (`/guides/` 与 `/guides/[slug]/`)：
-   - 覆盖 Windows、Android、iOS、macOS、Sing-box、Clash Meta、Surge、Loon、小火箭、软路由 (OpenWrt/梅林/Docker)、电视盒子 (Apple TV/Android TV)、游戏主机加速 (PS5/Switch/Steam Deck)、开发环境 (Git/WSL2/SwitchyOmega) 等。
-4. **100 篇深度原创技术博文** (`/blog/` 与 `/blog/[slug]/`)：
-   - 涵盖 7 大核心主题知识库：选型避坑、底层专线、协议横评、性能调优、AI 解锁、流媒体、安全隐私。
-5. **知识词典与信任背书** (`/glossary/[slug]/`, `/about/`, `/contact/`, `/editorial-policy/`, `/privacy-policy/`, `/disclaimer/`)。
-
----
-
-## 三、技术架构特色
-
-1. **纯 HTML5 + 原生 CSS**：放弃任何冗长重型的构建器与 JS 组件库，首屏毫秒级加载。
-2. **100% 严格标准相对路径**：所有 CSS、JS 及页面超链接均使用相对路径（`css/style.css`、`../../index.html` 等），支持本地离线直接双击（`file://` 协议）正常浏览。
-3. **结构化机场数据库**：在 `data/airports.js` 与 `data/airports.json` 中统一维护 14 家机场套餐、线路、协议、优惠码与核验状态。
-4. **自动化 Bing SEO 赋能**：
-   - 自动生成 `sitemap.xml`（168个核心索引页面）与 `robots.txt`。
-   - 集成 `IndexNow` 实时推送脚本 (`scripts/indexnow.js`)。
-   - 全页面标准 Canonical 规范地址与 Schema.org 结构化标记。
+1. **纯粹 Markdown 内容驱动**：
+   - 彻底废弃成百上千行机械拼接的 HTML 字符串，全站 100 篇博文与 30 篇教程全部采用结构化标准 Markdown (`.md`) 存储。
+   - 使用 VitePress 原生语法提示框（`::: tip`、`::: info`、`::: warning`、`::: details` 折叠菜单），阅读排版干净优雅。
+2. **Vue 3 组件化去重**：
+   - `<AirportTable />`：统一渲染 1-14 家机场排行表格，带一键复制优惠码与直接直达官网功能。
+   - `<AirportCompare />`：支持自由勾选 2-4 家机场进行多维度参数实时并排对照。
+   - `<AirportCard id="..." />`：高转化卡片组件，直接按品牌 ID 读取核心数据库。
+   - `<AffButton id="..." />`：专属 AFF 推广直达按钮组件。
+3. **开箱即用的极速本地搜索**：
+   - 内置 VitePress Local Search，无需外部搜索引擎即可实时对全站 170 篇页面进行毫秒级模糊检索。
+4. **全自动 SEO 与 Sitemap 生成**：
+   - 构建流水线自动生成符合标准协议的 `sitemap.xml`（收录 170 个独立页面）与 `robots.txt`。
+   - 集成 Bing IndexNow 实时推送机制 (`scripts/indexnow.cjs`)。
 
 ---
 
-## 四、常用命令与开发工作流
+## 三、常用命令
 
-### 1. 全站重新构建
+### 1. 本地开发与实时预览
+```bash
+npm run dev
+```
+启动 VitePress 本地极速开发服务器，支持热模块替换 (HMR)。
+
+### 2. 静态生产构建 (SSG)
 ```bash
 npm run build
 ```
-一键生成全站 169 个纯 HTML 页面、`sitemap.xml`、`robots.txt` 与 IndexNow 校验文件。
+输出纯静态 HTML/CSS/JS 文件至 `docs/.vitepress/dist`，零服务端依赖。
 
-### 2. 自动化质量与 SEO 验收测试
+### 3. 本地预览生产构建产物
+```bash
+npm run preview
+```
+
+### 4. 自动化回归测试
 ```bash
 npm test
 ```
-自动运行三大审计脚本（`audit-seo.js`, `check-links.js`, `validate-content.js`），确保 169 个页面 0 死链、0 模板变量残留、100% 相对路径。
+验证生产构建产物、Sitemap 完整度、核心页面与 IndexNow 密钥。
 
-### 3. 向 Bing 提交 IndexNow 实时推送
+### 5. 向 Bing 提交 IndexNow 实时收录推送
 ```bash
 npm run indexnow
 ```
