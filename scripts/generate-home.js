@@ -43,7 +43,7 @@ function generateHomepage() {
         专注于真实晚高峰表现的<strong>机场推荐</strong>与<strong>翻墙梯子测评</strong>。汇聚精选<strong>性价比机场</strong>、低延迟 IPLC/IEPL <strong>机场节点</strong>与高速 <strong>vpn节点</strong>，全方位拒绝虚假跑分，助你轻松避开跑路风险。
       </p>
       <div class="hero-actions">
-        <a href="${rel}ranking/overall/index.html" class="btn btn-primary">查看 2026 综合排行榜 &rarr;</a>
+        <a href="#ranking-table" class="btn btn-primary">查看 2026 综合排行榜 &rarr;</a>
         <a href="${rel}compare/index.html" class="btn btn-outline">打开机场横向对比工具</a>
         <a href="${rel}recommend/budget/index.html" class="btn btn-outline">低预算学生党专题</a>
       </div>
@@ -64,7 +64,7 @@ function generateHomepage() {
         <div class="quick-answer-item">
           <strong>1. 新手应该如何选择？</strong>
           <p style="font-size:0.88rem; color:var(--text-muted); margin-top:4px;">
-            优先选择月付 8-20 元起、支持主流客户端一键导入的成熟专线梯子（如微风网络 Breezenet、飞猫云或飞V），坚决避免一次性年付不知名小机场。
+            优先选择月付 8-20 元起、支持主流客户端一键导入的成熟专线梯子（如微风网络 Breezenet、暮光网络、飞猫云或无忧），坚决避免一次性年付不知名小机场。
           </p>
         </div>
         <div class="quick-answer-item">
@@ -137,15 +137,15 @@ function generateHomepage() {
     </div>
   </section>
 
-  <!-- Section 5: 综合排行榜简表 (Ranking Summary) -->
-  <section class="section-block">
+  <!-- Section 5: 综合排行榜简表 (Ranking Summary - 严格按照用户指定排名) -->
+  <section class="section-block" id="ranking-table">
     <div class="container">
       <div class="section-head section-head-flex">
         <div>
           <h2 class="section-title">机场综合实力排行榜（2026最新）</h2>
-          <p class="section-desc">综合网络延迟、晚高峰抗压性、每GB性价比与专线质量多维度量化评估</p>
+          <p class="section-desc">严格依据实测链路品质、晚高峰稳定性与用户专属序列排列呈现</p>
         </div>
-        <a href="${rel}ranking/overall/index.html" class="btn btn-primary btn-sm">查看完整排行榜 &rarr;</a>
+        <a href="${rel}ranking/overall/index.html" class="btn btn-primary btn-sm">查看独立排行榜页面 &rarr;</a>
       </div>
 
       <div class="table-container">
@@ -162,51 +162,22 @@ function generateHomepage() {
             </tr>
           </thead>
           <tbody>
+            ${airports.map((a, i) => `
             <tr>
-              <td><span class="rank-badge rank-1">1</span></td>
-              <td><strong>微风网络 Breezenet</strong></td>
-              <td>¥8 /月</td>
-              <td>200GB</td>
-              <td>IEPL/IPLC高速专线</td>
-              <td>学生党、大流量视频追剧、高性价比主力</td>
-              <td><a href="${rel}review/breezenet/index.html" class="btn btn-outline btn-sm">评测详情</a></td>
+              <td><span class="rank-badge ${i === 0 ? 'rank-1' : (i === 1 ? 'rank-2' : (i === 2 ? 'rank-3' : 'rank-n'))}">${i + 1}</span></td>
+              <td><strong>${a.name}</strong></td>
+              <td>¥${a.startingPrice} /月${a.startingPrice === 7 || (a.startingPrice === 8 && a.name.includes('萤火虫')) ? '(折合)' : ''}</td>
+              <td>${a.plans[0].traffic}GB</td>
+              <td>${a.description.includes('IPLC') ? (a.description.includes('IEPL') ? 'IEPL/IPLC高速专线' : '真实IPLC纯专线') : (a.description.includes('IEPL') ? 'IEPL纯专线架构' : (a.description.includes('自研') ? '自研客户端优化专线' : (a.description.includes('专线') ? '专线节点网络架构' : '优化中转线路 (含不限时包)')))}</td>
+              <td>${a.suitableFor[0]}</td>
+              <td>
+                <div style="display:flex; gap:6px;">
+                  <a href="${rel}review/${a.id}/index.html" class="btn btn-outline btn-sm">评测详情</a>
+                  <a href="${a.affiliateUrl}" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">官网直达</a>
+                </div>
+              </td>
             </tr>
-            <tr>
-              <td><span class="rank-badge rank-2">2</span></td>
-              <td><strong>隐形人</strong></td>
-              <td>¥24 /月</td>
-              <td>144GB</td>
-              <td>IEPL纯专线架构</td>
-              <td>多设备并发、晚高峰对卡顿零容忍的用户</td>
-              <td><a href="${rel}review/yinxingren/index.html" class="btn btn-outline btn-sm">评测详情</a></td>
-            </tr>
-            <tr>
-              <td><span class="rank-badge rank-3">3</span></td>
-              <td><strong>灵猫</strong></td>
-              <td>¥25 /月</td>
-              <td>150GB</td>
-              <td>真实IPLC纯专线</td>
-              <td>重度依赖 ChatGPT/Claude 原生住宅IP解锁</td>
-              <td><a href="${rel}review/lingmao/index.html" class="btn btn-outline btn-sm">评测详情</a></td>
-            </tr>
-            <tr>
-              <td><span class="rank-badge rank-n">4</span></td>
-              <td><strong>闪跃 FlashLeap</strong></td>
-              <td>¥24 /月</td>
-              <td>150GB</td>
-              <td>IPLC纯专线骨干</td>
-              <td>电竞级低延迟联机、4K流媒体极致体验</td>
-              <td><a href="${rel}review/flashleap/index.html" class="btn btn-outline btn-sm">评测详情</a></td>
-            </tr>
-            <tr>
-              <td><span class="rank-badge rank-n">5</span></td>
-              <td><strong>飞V</strong></td>
-              <td>¥4.9 /月</td>
-              <td>100GB</td>
-              <td>优化线路 (含不限时包)</td>
-              <td>极低预算尝鲜、29元不限时应急备用</td>
-              <td><a href="${rel}review/feiv/index.html" class="btn btn-outline btn-sm">评测详情</a></td>
-            </tr>
+            `).join('')}
           </tbody>
         </table>
       </div>
