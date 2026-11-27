@@ -1,11 +1,42 @@
 const { DOMAIN, renderPage, saveHtmlFile } = require('./template.js');
 const { allBlogs } = require('./blogs-data.js');
 
+function injectInternalLinks(para, rel, usedKeywords) {
+  const linkRules = [
+    { kw: '微风网络', label: '微风网络 Breezenet', url: `${rel}review/breezenet/index.html` },
+    { kw: '暮光网络', label: '暮光网络', url: `${rel}review/muguang/index.html` },
+    { kw: '飞猫云', label: '飞猫云', url: `${rel}review/feimaoyun/index.html` },
+    { kw: '闪跃', label: '闪跃 FlashLeap', url: `${rel}review/flashleap/index.html` },
+    { kw: '隐形人', label: '隐形人', url: `${rel}review/yinxingren/index.html` },
+    { kw: '性价比机场', label: '性价比机场', url: `${rel}ranking/value/index.html` },
+    { kw: '综合排行榜', label: '综合实力排行榜', url: `${rel}ranking/overall/index.html` },
+    { kw: '横向对比', label: '横向对比工具', url: `${rel}compare/index.html` },
+    { kw: 'Clash Verge', label: 'Clash Verge Rev', url: `${rel}guides/windows/index.html` },
+    { kw: 'Shadowrocket', label: 'Shadowrocket (小火箭)', url: `${rel}guides/ios/index.html` },
+    { kw: '小火箭', label: 'Shadowrocket (小火箭)', url: `${rel}guides/ios/index.html` },
+    { kw: 'Sing-box', label: 'Sing-box 客户端', url: `${rel}guides/sing-box-windows/index.html` },
+    { kw: 'v2rayNG', label: 'v2rayNG 安卓客户端', url: `${rel}guides/android/index.html` },
+    { kw: 'IPLC专线', label: 'IPLC纯物理专线', url: `${rel}ranking/stable/index.html` },
+    { kw: 'IEPL专线', label: 'IEPL内网专线', url: `${rel}glossary/iepl/index.html` },
+    { kw: '机场推荐', label: '优质机场推荐', url: `${rel}index.html` }
+  ];
+
+  let res = para;
+  for (const rule of linkRules) {
+    if (!usedKeywords.has(rule.kw) && res.includes(rule.kw)) {
+      usedKeywords.add(rule.kw);
+      res = res.replace(rule.kw, `<a href="${rule.url}" class="inline-link">${rule.label}</a>`);
+      break; // At most one link per paragraph
+    }
+  }
+  return res;
+}
+
 function generateBlogsFull() {
   console.log(`[GENERATING] 100 Blog Posts and blog/index.html...`);
 
-  // 1. Generate Each of the 100 Blog Posts
-  allBlogs.forEach(p => {
+  // 1. Generate Each of the 100 Blog Posts with Prev/Next, In-content Links, and Recs
+  allBlogs.forEach((p, idx) => {
     const depth = 2;
     const rel = '../../';
 
@@ -14,19 +45,33 @@ function generateBlogsFull() {
       { name: p.title.split('：')[0], url: "" }
     ];
 
+    // Prev / Next Navigation Calculation
+    const prevPost = idx > 0 ? allBlogs[idx - 1] : null;
+    const nextPost = idx < allBlogs.length - 1 ? allBlogs[idx + 1] : null;
+
+    // Related Posts (Prioritize same category, then adjacent)
+    const sameCatBlogs = allBlogs.filter(b => b.slug !== p.slug && b.category === p.category);
+    const otherBlogs = allBlogs.filter(b => b.slug !== p.slug && b.category !== p.category);
+    const relatedPosts = sameCatBlogs.slice(0, 4);
+    if (relatedPosts.length < 4) {
+      relatedPosts.push(...otherBlogs.slice(0, 4 - relatedPosts.length));
+    }
+
+    const usedKeywords = new Set();
+
     const sectionsHtml = p.sections.map(s => `
       <section style="margin-top:32px;">
         <h2 style="font-size:1.35rem; font-weight:700; color:var(--text-main); margin-bottom:14px; padding-bottom:8px; border-bottom:1px solid var(--border);">${s.heading}</h2>
-        ${s.paragraphs.map(para => `<p style="line-height:1.8; color:var(--text-main); margin-bottom:16px;">${para}</p>`).join('')}
+        ${s.paragraphs.map(para => `<p style="line-height:1.8; color:var(--text-main); margin-bottom:16px;">${injectInternalLinks(para, rel, usedKeywords)}</p>`).join('')}
       </section>
     `).join('');
 
     const content = `
     <article class="container article-container" style="padding-top:40px; padding-bottom:60px;">
       <div class="article-header">
-        <div style="display:inline-block; background:rgba(37,99,235,0.08); color:var(--primary); font-size:0.85rem; font-weight:600; padding:4px 12px; border-radius:20px; margin-bottom:12px;">
-          专题分类：${p.category}
-        </div>
+        <a href="${rel}blog/index.html#cat-${encodeURIComponent(p.category)}" style="display:inline-block; background:rgba(37,99,235,0.08); color:var(--primary); font-size:0.85rem; font-weight:600; padding:4px 12px; border-radius:20px; margin-bottom:12px; text-decoration:none;">
+          专题分类：${p.category} &rarr;
+        </a>
         <h1 class="article-title">${p.title}</h1>
         <div class="article-meta">
           <span>📅 更新时间：2026年11月</span>
@@ -44,7 +89,57 @@ function generateBlogsFull() {
       <div class="article-body">
         ${sectionsHtml}
 
-        <div class="notice-box" style="margin-top:40px;">
+        <!-- 推荐专线直达转化卡片 -->
+        <div class="article-inline-recommend">
+          <div class="inline-recommend-header">
+            <h3 class="inline-recommend-title">
+              <span>⚡ 2026 实测推荐：高速稳定专线机场精选</span>
+            </h3>
+            <a href="${rel}ranking/overall/index.html" style="font-size:0.85rem; color:var(--primary); font-weight:700; text-decoration:none;">
+              查看完整 14 品牌排行 &rarr;
+            </a>
+          </div>
+          <div class="inline-recommend-grid">
+            <div class="inline-rec-item">
+              <div class="inline-rec-brand">
+                <span>微风网络 Breezenet</span>
+                <span class="inline-rec-price">¥8 /月</span>
+              </div>
+              <span class="inline-rec-line">IEPL/IPLC 高速专线</span>
+              <p class="inline-rec-desc">200GB起步流量，大流量视频追剧首选，优惠码 <code>weifeng90</code>。</p>
+              <div class="inline-rec-actions">
+                <a href="${rel}review/breezenet/index.html" class="btn btn-outline btn-sm" style="flex:1; text-align:center;">评测详情</a>
+                <a href="https://edp01.breezenetaff.com/#/?code=h4GlIXwC" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="flex:1; text-align:center; font-weight:700;">直达官网</a>
+              </div>
+            </div>
+            <div class="inline-rec-item">
+              <div class="inline-rec-brand">
+                <span>暮光网络</span>
+                <span class="inline-rec-price">¥20 /月</span>
+              </div>
+              <span class="inline-rec-line">三网优化专线入口</span>
+              <p class="inline-rec-desc">120GB起步流量，晚高峰低延迟，办公、文献与科研主力。</p>
+              <div class="inline-rec-actions">
+                <a href="${rel}review/muguang/index.html" class="btn btn-outline btn-sm" style="flex:1; text-align:center;">评测详情</a>
+                <a href="https://varnexa.twilightaff.com/#/?code=8EtJCnBT" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="flex:1; text-align:center; font-weight:700;">直达官网</a>
+              </div>
+            </div>
+            <div class="inline-rec-item">
+              <div class="inline-rec-brand">
+                <span>飞猫云</span>
+                <span class="inline-rec-price">¥7 /月起</span>
+              </div>
+              <span class="inline-rec-line">IEPL/IPLC 双中转</span>
+              <p class="inline-rec-desc">150GB起步流量，多线容灾互备，优惠码 <code>flycat888</code>。</p>
+              <div class="inline-rec-actions">
+                <a href="${rel}review/feimaoyun/index.html" class="btn btn-outline btn-sm" style="flex:1; text-align:center;">评测详情</a>
+                <a href="https://flycat1.flycatvipaff.cc/#/?code=MlwqPqcx" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="flex:1; text-align:center; font-weight:700;">直达官网</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="notice-box" style="margin-top:36px;">
           <h3 style="font-size:1.15rem; margin-top:0; color:var(--secondary);">💡 选购与配置建议</h3>
           <p style="margin-bottom:12px;">在挑选科学上网梯子服务时，建议结合自身预算与实际使用场景进行客观决策。不同服务商在晚高峰稳定性、流媒体解锁能力以及售后响应上存在明显分化。</p>
           <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:16px;">
@@ -54,15 +149,44 @@ function generateBlogsFull() {
           </div>
         </div>
 
-        <section style="margin-top:48px; padding-top:24px; border-top:1px solid var(--border);">
-          <h3 style="font-size:1.15rem; font-weight:700; color:var(--secondary); margin-bottom:16px;">📚 推荐相关阅读</h3>
-          <ul style="line-height:2; padding-left:20px; color:var(--primary);">
-            <li><a href="${rel}ranking/value/index.html">2026 高性价比机场推荐排行榜</a></li>
-            <li><a href="${rel}ranking/stable/index.html">稳定性第一的高端 IPLC/IEPL 专线机场排行</a></li>
-            <li><a href="${rel}guides/windows/index.html">Windows 电脑 Clash Verge Rev 保姆级配置教程</a></li>
-            <li><a href="${rel}guides/android/index.html">Android 安卓手机 Clash Meta / v2rayNG 入门指南</a></li>
-            <li><a href="${rel}guides/ios/index.html">iOS 平台小火箭 (Shadowrocket) 快速上手图解</a></li>
-          </ul>
+        <!-- 文章上一篇 / 下一篇导航组件 -->
+        <nav class="post-pagination" aria-label="文章上下篇跳转">
+          ${prevPost ? `
+          <a href="${rel}blog/${prevPost.slug}/index.html" class="pagination-card prev">
+            <span class="pagination-label">&larr; 上一篇专栏</span>
+            <span class="pagination-title">${prevPost.title}</span>
+          </a>
+          ` : `
+          <a href="${rel}blog/index.html" class="pagination-card prev">
+            <span class="pagination-label">&larr; 返回博客文库</span>
+            <span class="pagination-title">浏览全部 100 篇深度专栏</span>
+          </a>
+          `}
+          ${nextPost ? `
+          <a href="${rel}blog/${nextPost.slug}/index.html" class="pagination-card next">
+            <span class="pagination-label">下一篇专栏 &rarr;</span>
+            <span class="pagination-title">${nextPost.title}</span>
+          </a>
+          ` : `
+          <a href="${rel}ranking/overall/index.html" class="pagination-card next">
+            <span class="pagination-label">已读完全部 &rarr;</span>
+            <span class="pagination-title">前往 2026 综合实力排行榜</span>
+          </a>
+          `}
+        </nav>
+
+        <!-- 推荐相关阅读 -->
+        <section class="related-posts">
+          <h3 style="font-size:1.18rem; font-weight:700; color:var(--secondary); margin-bottom:16px;">📚 推荐同类深度阅读</h3>
+          <div class="related-grid">
+            ${relatedPosts.map(rp => `
+            <a href="${rel}blog/${rp.slug}/index.html" class="related-card">
+              <div style="font-size:0.75rem; color:var(--primary); font-weight:700; margin-bottom:4px;">${rp.category}</div>
+              <h4>${rp.title}</h4>
+              <span>阅读全文 &rarr;</span>
+            </a>
+            `).join('')}
+          </div>
         </section>
       </div>
     </article>`;

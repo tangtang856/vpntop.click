@@ -402,16 +402,30 @@ function generateGuidesFull() {
   const rel = '../../';
 
   // 1. Generate individual guide pages
-  allGuides.forEach(g => {
+  allGuides.forEach((g, idx) => {
     const crumbs = [
       { name: "使用教程", url: "guides/index.html" },
       { name: g.title.split('：')[0], url: "" }
     ];
 
+    // Prev / Next Navigation Calculation
+    const prevGuide = idx > 0 ? allGuides[idx - 1] : null;
+    const nextGuide = idx < allGuides.length - 1 ? allGuides[idx + 1] : null;
+
+    // Dynamic Related Guides
+    const sameCatGuides = allGuides.filter(item => item.slug !== g.slug && item.category === g.category);
+    const otherGuides = allGuides.filter(item => item.slug !== g.slug && item.category !== g.category);
+    const relatedGuides = sameCatGuides.slice(0, 4);
+    if (relatedGuides.length < 4) {
+      relatedGuides.push(...otherGuides.slice(0, 4 - relatedGuides.length));
+    }
+
     const content = `
     <article class="container article-container" style="padding-top:40px; padding-bottom:60px;">
       <div class="article-header">
-        <span class="badge badge-verified" style="margin-bottom:10px;">${g.category}</span>
+        <a href="${rel}guides/index.html" style="display:inline-block; background:rgba(37,99,235,0.08); color:var(--primary); font-size:0.85rem; font-weight:600; padding:4px 12px; border-radius:20px; margin-bottom:10px; text-decoration:none;">
+          ${g.category} &rarr;
+        </a>
         <h1 class="article-title">${g.title}</h1>
         <div class="article-meta">
           <span>📅 更新时间：2026年11月</span>
@@ -440,6 +454,56 @@ function generateGuidesFull() {
         </div>
         `).join('')}
 
+        <!-- 教程内嵌精选节点推荐 -->
+        <div class="article-inline-recommend">
+          <div class="inline-recommend-header">
+            <h3 class="inline-recommend-title">
+              <span>🚀 优质订阅节点推荐（即买即用，完美兼容本教程）</span>
+            </h3>
+            <a href="${rel}ranking/overall/index.html" style="font-size:0.85rem; color:var(--primary); font-weight:700; text-decoration:none;">
+              查看完整 14 家机场排行 &rarr;
+            </a>
+          </div>
+          <div class="inline-recommend-grid">
+            <div class="inline-rec-item">
+              <div class="inline-rec-brand">
+                <span>微风网络 Breezenet</span>
+                <span class="inline-rec-price">¥8 /月</span>
+              </div>
+              <span class="inline-rec-line">IEPL/IPLC 专线</span>
+              <p class="inline-rec-desc">支持一键导入 Clash / 小火箭 / Sing-box，大流量追剧首选。</p>
+              <div class="inline-rec-actions">
+                <a href="${rel}review/breezenet/index.html" class="btn btn-outline btn-sm" style="flex:1; text-align:center;">评测详情</a>
+                <a href="https://edp01.breezenetaff.com/#/?code=h4GlIXwC" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="flex:1; text-align:center; font-weight:700;">直达官网</a>
+              </div>
+            </div>
+            <div class="inline-rec-item">
+              <div class="inline-rec-brand">
+                <span>暮光网络</span>
+                <span class="inline-rec-price">¥20 /月</span>
+              </div>
+              <span class="inline-rec-line">优质专线入口</span>
+              <p class="inline-rec-desc">三网优化专线，晚高峰超低延迟，支持全平台一键订阅。</p>
+              <div class="inline-rec-actions">
+                <a href="${rel}review/muguang/index.html" class="btn btn-outline btn-sm" style="flex:1; text-align:center;">评测详情</a>
+                <a href="https://varnexa.twilightaff.com/#/?code=8EtJCnBT" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="flex:1; text-align:center; font-weight:700;">直达官网</a>
+              </div>
+            </div>
+            <div class="inline-rec-item">
+              <div class="inline-rec-brand">
+                <span>飞猫云</span>
+                <span class="inline-rec-price">¥7 /月起</span>
+              </div>
+              <span class="inline-rec-line">双中转容灾</span>
+              <p class="inline-rec-desc">性价比之王，节点抗封锁能力出众，专属折扣码 <code>flycat888</code>。</p>
+              <div class="inline-rec-actions">
+                <a href="${rel}review/feimaoyun/index.html" class="btn btn-outline btn-sm" style="flex:1; text-align:center;">评测详情</a>
+                <a href="https://flycat1.flycatvipaff.cc/#/?code=MlwqPqcx" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="flex:1; text-align:center; font-weight:700;">直达官网</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <h2>常见报错排查技巧 (Troubleshooting)</h2>
         <p>
           <strong>1. 节点全部超时或 Ping 为 Timeout：</strong>
@@ -459,25 +523,42 @@ function generateGuidesFull() {
           客户端只是工具外壳，网络速度的核心取决于机场节点的质量。推荐查看我们的 <a href="${rel}ranking/overall/index.html">2026 优质VPN机场综合实力排行榜</a> 或 <a href="${rel}ranking/value/index.html">高性价比专线梯子推荐</a>。
         </div>
 
+        <!-- 教程上一篇 / 下一篇跳转导航 -->
+        <nav class="post-pagination" aria-label="教程上下篇跳转">
+          ${prevGuide ? `
+          <a href="${rel}guides/${prevGuide.slug}/index.html" class="pagination-card prev">
+            <span class="pagination-label">&larr; 上一篇教程</span>
+            <span class="pagination-title">${prevGuide.title}</span>
+          </a>
+          ` : `
+          <a href="${rel}guides/index.html" class="pagination-card prev">
+            <span class="pagination-label">&larr; 返回教程中心</span>
+            <span class="pagination-title">浏览全平台 30 篇配置手册</span>
+          </a>
+          `}
+          ${nextGuide ? `
+          <a href="${rel}guides/${nextGuide.slug}/index.html" class="pagination-card next">
+            <span class="pagination-label">下一篇教程 &rarr;</span>
+            <span class="pagination-title">${nextGuide.title}</span>
+          </a>
+          ` : `
+          <a href="${rel}ranking/overall/index.html" class="pagination-card next">
+            <span class="pagination-label">教程已读完 &rarr;</span>
+            <span class="pagination-title">查看 2026 专线机场排行榜</span>
+          </a>
+          `}
+        </nav>
+
         <div class="related-posts">
           <h3>更多新手教程与平台指南</h3>
           <div class="related-grid">
-            <a href="${rel}guides/windows/index.html" class="related-card">
-              <h4>🖥️ Windows 配置教程</h4>
-              <span>Clash Verge 实战</span>
+            ${relatedGuides.map(rg => `
+            <a href="${rel}guides/${rg.slug}/index.html" class="related-card">
+              <div style="font-size:0.75rem; color:var(--primary); font-weight:700; margin-bottom:4px;">${rg.category}</div>
+              <h4>${rg.title}</h4>
+              <span>阅读实操教程 &rarr;</span>
             </a>
-            <a href="${rel}guides/android/index.html" class="related-card">
-              <h4>📱 Android 配置教程</h4>
-              <span>Clash Meta 手机端</span>
-            </a>
-            <a href="${rel}guides/ios/index.html" class="related-card">
-              <h4>🍏 iOS 小火箭配置</h4>
-              <span>Shadowrocket 指南</span>
-            </a>
-            <a href="${rel}guides/clash-meta/index.html" class="related-card">
-              <h4>🛠️ Clash Meta 内核进阶</h4>
-              <span>分流规则与 DNS 优化</span>
-            </a>
+            `).join('')}
           </div>
         </div>
       </div>

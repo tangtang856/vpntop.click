@@ -5,11 +5,14 @@ function generateReviews() {
   const depth = 2;
   const rel = '../../';
 
-  airports.forEach(a => {
+  airports.forEach((a, idx) => {
     const crumbs = [
       { name: "机场评测", url: "ranking/overall/index.html" },
       { name: `${a.name.split(' ')[0]} 深度评测`, url: "" }
     ];
+
+    const prevAirport = idx > 0 ? airports[idx - 1] : null;
+    const nextAirport = idx < airports.length - 1 ? airports[idx + 1] : null;
 
     const otherAirports = airports.filter(item => item.id !== a.id).slice(0, 3);
 
@@ -233,6 +236,32 @@ function generateReviews() {
           </div>
           `).join('')}
         </div>
+
+        <!-- 机场评测上一家 / 下一家跳转导航 -->
+        <nav class="post-pagination" aria-label="机场评测上下篇跳转">
+          ${prevAirport ? `
+          <a href="${rel}review/${prevAirport.id}/index.html" class="pagination-card prev">
+            <span class="pagination-label">&larr; 上一家评测 (第 ${idx} 名)</span>
+            <span class="pagination-title">${prevAirport.name}</span>
+          </a>
+          ` : `
+          <a href="${rel}ranking/overall/index.html" class="pagination-card prev">
+            <span class="pagination-label">&larr; 返回综合榜单</span>
+            <span class="pagination-title">查看 14 品牌完整排行</span>
+          </a>
+          `}
+          ${nextAirport ? `
+          <a href="${rel}review/${nextAirport.id}/index.html" class="pagination-card next">
+            <span class="pagination-label">下一家评测 (第 ${idx + 2} 名) &rarr;</span>
+            <span class="pagination-title">${nextAirport.name}</span>
+          </a>
+          ` : `
+          <a href="${rel}ranking/overall/index.html" class="pagination-card next">
+            <span class="pagination-label">评测已读完 &rarr;</span>
+            <span class="pagination-title">返回 2026 综合实力排行榜</span>
+          </a>
+          `}
+        </nav>
 
         <!-- 16 & 17. 数据来源与核验日期 -->
         <div style="margin-top:40px; padding:20px; background-color:var(--bg-alt); border-radius:var(--radius-sm); font-size:0.85rem; color:var(--text-muted);">

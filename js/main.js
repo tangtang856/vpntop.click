@@ -7,20 +7,20 @@
 window.copyCouponText = function (code) {
   if (navigator.clipboard) {
     navigator.clipboard.writeText(code).then(function () {
-      // Find the clicked element and temporarily show copied feedback
-      const allBtns = document.querySelectorAll(".coupon-tag-btn");
-      allBtns.forEach(function (btn) {
-        if (btn.querySelector(".coupon-text")?.textContent === code) {
-          const tip = btn.querySelector(".copy-tip");
-          if (tip) {
-            const original = tip.textContent;
-            tip.textContent = "已复制!";
-            tip.style.background = "#059669";
-            tip.style.color = "#ffffff";
+      // Find all pills or buttons matching this code and show copied feedback
+      const allPills = document.querySelectorAll(".brand-coupon-pill, .coupon-tag-btn");
+      allPills.forEach(function (pill) {
+        if (pill.textContent.includes(code)) {
+          const hint = pill.querySelector(".copy-hint, .copy-tip");
+          if (hint) {
+            const original = hint.textContent;
+            hint.textContent = "已复制!";
+            hint.style.backgroundColor = "#059669";
+            hint.style.color = "#ffffff";
             setTimeout(function () {
-              tip.textContent = original;
-              tip.style.background = "";
-              tip.style.color = "";
+              hint.textContent = original;
+              hint.style.backgroundColor = "";
+              hint.style.color = "";
             }, 1800);
           }
         }
@@ -86,4 +86,26 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
+
+  // Smooth Floating Back to Top Button
+  const backToTopBtn = document.createElement("button");
+  backToTopBtn.className = "back-to-top-btn";
+  backToTopBtn.setAttribute("aria-label", "返回顶部");
+  backToTopBtn.innerHTML = "↑";
+  document.body.appendChild(backToTopBtn);
+
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 380) {
+      backToTopBtn.classList.add("is-visible");
+    } else {
+      backToTopBtn.classList.remove("is-visible");
+    }
+  });
+
+  backToTopBtn.addEventListener("click", function () {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
 });
