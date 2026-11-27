@@ -33,6 +33,53 @@ window.copyCouponText = function (code) {
   }
 };
 
+// Global function to open/close contact modal & copy contact text
+window.openContactModal = function () {
+  const modal = document.getElementById("contact-modal");
+  if (modal) {
+    modal.classList.add("is-active");
+    document.body.style.overflow = "hidden";
+  }
+};
+
+window.closeContactModal = function () {
+  const modal = document.getElementById("contact-modal");
+  if (modal) {
+    modal.classList.remove("is-active");
+    document.body.style.overflow = "";
+  }
+};
+
+window.copyContactText = function (text, btnElement) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(function () {
+      if (btnElement) {
+        const orig = btnElement.textContent;
+        btnElement.textContent = "已复制!";
+        btnElement.style.backgroundColor = "#059669";
+        btnElement.style.color = "#ffffff";
+        btnElement.style.borderColor = "#059669";
+        setTimeout(function () {
+          btnElement.textContent = orig;
+          btnElement.style.backgroundColor = "";
+          btnElement.style.color = "";
+          btnElement.style.borderColor = "";
+        }, 1800);
+      }
+    }).catch(function () {
+      prompt("请手动复制：", text);
+    });
+  } else {
+    prompt("请手动复制：", text);
+  }
+};
+
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") {
+    window.closeContactModal();
+  }
+});
+
 document.addEventListener("DOMContentLoaded", function () {
   // Mobile Navigation Menu Toggle
   const toggleBtn = document.querySelector(".nav-toggle-btn");

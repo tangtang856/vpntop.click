@@ -49,8 +49,12 @@
         <a href="../../compare/index.html" class="">机场对比</a>
         <a href="../../guides/index.html" class="">使用教程</a>
         <a href="../../blog/index.html" class="active">博客文章</a>
+        <a href="javascript:void(0)" onclick="openContactModal()" class="mobile-contact-link">💬 联络我们</a>
       </nav>
       <div class="header-actions">
+        <button type="button" class="btn btn-contact btn-sm" onclick="openContactModal()" aria-label="联络我们">
+          <span class="contact-btn-icon">💬</span> 联络我们
+        </button>
         <a href="../../compare/index.html" class="btn btn-outline btn-sm">横向对比</a>
       </div>
       <button class="nav-toggle-btn" aria-label="切换导航菜单" aria-expanded="false">&#9776;</button>
@@ -219,6 +223,69 @@
       </div>
     </article>
   </main>
+
+  <!-- 全局专业联络我们弹窗 Modal -->
+  <div id="contact-modal" class="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+    <div class="contact-modal-overlay" onclick="closeContactModal()"></div>
+    <div class="contact-modal-dialog">
+      <div class="contact-modal-header">
+        <div class="contact-modal-title-group">
+          <h3 id="contact-modal-title" class="contact-modal-title">💬 联络我们 / 商务合作</h3>
+          <p class="contact-modal-subtitle">官方唯一联系渠道 · 商务合作 · 节点送测 · 7×24h 优先受理</p>
+        </div>
+        <button type="button" class="contact-modal-close" onclick="closeContactModal()" aria-label="关闭窗口">&times;</button>
+      </div>
+      
+      <div class="contact-modal-body">
+        <!-- Gmail 商务联络通道 -->
+        <div class="contact-channel-card">
+          <div class="channel-icon gmail-icon">
+            <span>M</span>
+          </div>
+          <div class="channel-info">
+            <div class="channel-type">官方商务与合作邮箱 (Gmail)</div>
+            <div class="channel-value" id="contact-gmail-val">xintangtang888@gmail.com</div>
+            <div class="channel-desc">受理机场品牌送测、广告赞助、文章转载与商业洽谈，1个工作日内必复。</div>
+          </div>
+          <div class="channel-actions">
+            <button type="button" class="btn btn-sm btn-outline" onclick="copyContactText('xintangtang888@gmail.com', this)">复制邮箱</button>
+            <a href="mailto:xintangtang888@gmail.com?subject=VPN%20Top%20业务合作咨询" class="btn btn-sm btn-primary" style="font-weight:700;">发信联络</a>
+          </div>
+        </div>
+
+        <!-- Telegram 即时沟通通道 -->
+        <div class="contact-channel-card">
+          <div class="channel-icon tlg-icon">
+            <span>✈</span>
+          </div>
+          <div class="channel-info">
+            <div class="channel-type">Telegram 唯一官方即时客服</div>
+            <div class="channel-value" id="contact-tlg-val">@xintangtang</div>
+            <div class="channel-desc">支持即时技术探讨、大客户采购咨询与紧急问题交流。请认准唯一用户名。</div>
+          </div>
+          <div class="channel-actions">
+            <button type="button" class="btn btn-sm btn-outline" onclick="copyContactText('@xintangtang', this)">复制账号</button>
+            <a href="https://t.me/xintangtang" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary" style="background:#0088cc; border-color:#0088cc; font-weight:700;">直达 TG 对话</a>
+          </div>
+        </div>
+
+        <!-- 合作规范声明 -->
+        <div class="contact-notice-box">
+          <div class="notice-item">
+            <strong>🛡️ 客观公正声明：</strong>本站所有测评均基于真实网络环境实测，拒绝虚假跑分，不收受虚假排位赞助。
+          </div>
+          <div class="notice-item">
+            <strong>⚡ 优先响应承诺：</strong>Telegram 消息于工作时段优先极速响应，邮件信件将在 1 个工作日内处理完毕。
+          </div>
+        </div>
+      </div>
+      
+      <div class="contact-modal-footer">
+        <a href="../../contact/index.html" class="contact-footer-link">查看完整联络渠道与勘误公约 &rarr;</a>
+      </div>
+    </div>
+  </div>
+
   
   <footer class="site-footer">
     <div class="container">

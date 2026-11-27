@@ -53,26 +53,72 @@ function generateTrustPages() {
     const content = `
     <div class="container article-container" style="padding-top:40px; padding-bottom:60px;">
       <div class="article-header">
-        <h1 class="article-title">联系 VPN Top 编辑团队</h1>
+        <h1 class="article-title">联络我们与商务合作通道</h1>
         <div class="article-meta">
-          <span>📬 沟通渠道：邮件与勘误反馈</span>
+          <span>📬 官方通道：Gmail 商务合作 · Telegram 即时沟通</span>
+          <span>⏱️ 服务响应：工作日 24 小时内必复</span>
         </div>
       </div>
       <div class="article-content">
-        <h2>如何与我们取得联系？</h2>
+        <h2>官方联络渠道</h2>
         <p>
-          我们欢迎广大读者、网络工程师及服务商与我们交流：
+          感谢您对 VPN Top (vpntop.click) 的关注与支持。我们欢迎广大读者、测评爱好者、跨境电商卖家及优质机场服务商与我们取得直接联络：
         </p>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:20px; margin:24px 0;">
+          <!-- Gmail Card -->
+          <div style="background:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:24px; box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+            <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+              <div style="width:44px; height:44px; border-radius:10px; background:#ea4335; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:1.3rem;">M</div>
+              <div>
+                <h3 style="margin:0; font-size:1.1rem; color:var(--secondary);">商务合作与反馈邮箱 (Gmail)</h3>
+                <span style="font-size:0.8rem; color:var(--text-muted);">适用于正式邮件洽谈与文档传输</span>
+              </div>
+            </div>
+            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:10px 14px; font-family:var(--font-mono); font-size:1.05rem; font-weight:700; color:var(--secondary); margin-bottom:14px; word-break:break-all;">
+              xintangtang888@gmail.com
+            </div>
+            <p style="font-size:0.86rem; color:var(--text-muted); line-height:1.5; margin-bottom:16px;">
+              受理机场节点送测、优质品牌收录申请、广告赞助、文章转载授权及读者数据纠错反馈。
+            </p>
+            <div style="display:flex; gap:10px;">
+              <button type="button" class="btn btn-sm btn-outline" onclick="copyContactText('xintangtang888@gmail.com', this)" style="flex:1;">一键复制</button>
+              <a href="mailto:xintangtang888@gmail.com?subject=VPN%20Top%20商务合作与咨询" class="btn btn-sm btn-primary" style="flex:1; text-align:center;">直接发信</a>
+            </div>
+          </div>
+
+          <!-- Telegram Card -->
+          <div style="background:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:24px; box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+            <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+              <div style="width:44px; height:44px; border-radius:10px; background:#0088cc; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:1.3rem;">✈</div>
+              <div>
+                <h3 style="margin:0; font-size:1.1rem; color:var(--secondary);">Telegram 官方即时客服</h3>
+                <span style="font-size:0.8rem; color:var(--text-muted);">适用于快速沟通与技术交流</span>
+              </div>
+            </div>
+            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:10px 14px; font-family:var(--font-mono); font-size:1.05rem; font-weight:700; color:#0088cc; margin-bottom:14px;">
+              @xintangtang
+            </div>
+            <p style="font-size:0.86rem; color:var(--text-muted); line-height:1.5; margin-bottom:16px;">
+              支持大客户采购咨询、紧急问题咨询、节点技术交流。请认准官方唯一用户名，谨防仿冒诈骗。
+            </p>
+            <div style="display:flex; gap:10px;">
+              <button type="button" class="btn btn-sm btn-outline" onclick="copyContactText('@xintangtang', this)" style="flex:1;">一键复制</button>
+              <a href="https://t.me/xintangtang" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary" style="flex:1; text-align:center; background:#0088cc; border-color:#0088cc;">直达 TG 对话</a>
+            </div>
+          </div>
+        </div>
+
+        <h2>沟通合作规范</h2>
         <ul>
-          <li><strong>数据勘误与反馈：</strong>如果您发现某家机场的资费、线路或节点发生重大变更，欢迎来信指正，我们将在核验后 24 小时内更新。</li>
-          <li><strong>测试线路提报：</strong>服务商若希望加入我们的自动化网络质量监控池，可提供真实公开文档与测试订阅，我们将按照统一标准进行无差别压力测试。</li>
+          <li><strong>数据勘误与节点更新：</strong>如果您发现某家机场的套餐资费、节点拓扑或优惠码发生调整，欢迎提供官方公开公告，我们将在核验属实后 24 小时内更新页面。</li>
+          <li><strong>测试线路报送：</strong>机场服务商若申请加入自动化晚高峰监测池，需提供稳定可复现的订阅节点，测试结果以真实探针为准，严禁人为篡改。</li>
+          <li><strong>商业合作：</strong>我们接受符合行业合规规范的高质量专线服务商赞助展示，但绝不承接任何有损评测中立性的虚假刷榜行为。</li>
         </ul>
+
         <div class="notice-box">
-          <strong>官方联系邮箱：</strong>
-          <br>
-          电子邮箱：<code style="font-size:1.05rem;">contact@vpntop.click</code>
-          <br>
-          <span style="font-size:0.85rem; color:var(--text-muted);">（一般事务将在 1-2 个工作日内回复。不受理任何付费刷榜与洗稿要求。）</span>
+          <strong>防伪与安全提示：</strong>
+          本站仅通过上述声明的 Gmail（<code>xintangtang888@gmail.com</code>）及 Telegram（<code>@xintangtang</code>）展开沟通。我们绝不会在任何未经认证的第三方社群索要个人密码、私钥或发起未授权募资，请广大用户提高防范意识。
         </div>
       </div>
     </div>`;
